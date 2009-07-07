@@ -34,11 +34,8 @@
 		D217E9A20FFDA32D00F7A4A9 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9780FFDA32D00F7A4A9 /* Color.cpp */; };
 		D217E9A30FFDA32D00F7A4A9 /* FileUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = D217E97C0FFDA32D00F7A4A9 /* FileUtil.mm */; };
 		D217E9A40FFDA32D00F7A4A9 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E97D0FFDA32D00F7A4A9 /* Log.cpp */; };
-		D217E9A50FFDA32D00F7A4A9 /* MathUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9800FFDA32D00F7A4A9 /* MathUtil.cpp */; };
-		D217E9A60FFDA32D00F7A4A9 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9820FFDA32D00F7A4A9 /* Vector2.cpp */; };
 		D217E9A70FFDA32D00F7A4A9 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9850FFDA32D00F7A4A9 /* Rectangle.cpp */; };
 		D217E9A80FFDA32D00F7A4A9 /* RNG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9870FFDA32D00F7A4A9 /* RNG.cpp */; };
-		D217E9A90FFDA32D00F7A4A9 /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9890FFDA32D00F7A4A9 /* Texture2D.cpp */; };
 		D217E9AB0FFDA39300F7A4A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D217E9AA0FFDA39300F7A4A9 /* AudioToolbox.framework */; };
 		D217E9AF0FFDA39300F7A4A9 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D217E9AE0FFDA39300F7A4A9 /* CoreAudio.framework */; };
 		D217E9B10FFDA39300F7A4A9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D217E9B00FFDA39300F7A4A9 /* CoreFoundation.framework */; };
@@ -50,9 +47,6 @@
 		D217EAA30FFDA95D00F7A4A9 /* CAMPFIRE.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA00FFDA95D00F7A4A9 /* CAMPFIRE.dat */; };
 		D217EAA40FFDA95D00F7A4A9 /* FLAME_BACK.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA10FFDA95D00F7A4A9 /* FLAME_BACK.dat */; };
 		D217EAA50FFDA95D00F7A4A9 /* FLAME_FRONT.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA20FFDA95D00F7A4A9 /* FLAME_FRONT.dat */; };
-		D217EAA90FFDA96500F7A4A9 /* outfile.caf in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA60FFDA96500F7A4A9 /* outfile.caf */; };
-		D217EAAA0FFDA96500F7A4A9 /* forest.caf in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA70FFDA96500F7A4A9 /* forest.caf */; };
-		D217EAAB0FFDA96500F7A4A9 /* photon.caf in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA80FFDA96500F7A4A9 /* photon.caf */; };
 		D217EAB20FFDA97000F7A4A9 /* RunningLeft01.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAC0FFDA96F00F7A4A9 /* RunningLeft01.png */; };
 		D217EAB30FFDA97000F7A4A9 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAD0FFDA96F00F7A4A9 /* flame.png */; };
 		D217EAB40FFDA97000F7A4A9 /* StandingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAE0FFDA96F00F7A4A9 /* StandingLeft.png */; };
@@ -60,7 +54,14 @@
 		D217EAB60FFDA97000F7A4A9 /* blankTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAB00FFDA96F00F7A4A9 /* blankTexture.png */; };
 		D217EAB70FFDA97000F7A4A9 /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAB10FFDA96F00F7A4A9 /* particle.png */; };
 		D217EAC10FFDA9B900F7A4A9 /* RUNNINGLEFT.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAC00FFDA9B900F7A4A9 /* RUNNINGLEFT.dat */; };
+		D25B5658100107D70071438F /* MathUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25B5656100107D70071438F /* MathUtil.cpp */; };
+		D25B565B100107E10071438F /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25B5659100107E10071438F /* Vector2.cpp */; };
 		D291884B10001632000958B9 /* Quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D291884A10001632000958B9 /* Quad.cpp */; };
+		D2EC18461001765F002F97AD /* TextureController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2EC18451001765F002F97AD /* TextureController.cpp */; };
+		D2EC1864100177F9002F97AD /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2EC1863100177F9002F97AD /* Texture2D.cpp */; };
+		D2EC194410019BE2002F97AD /* photon.caf in Resources */ = {isa = PBXBuildFile; fileRef = D2EC194110019BE1002F97AD /* photon.caf */; };
+		D2EC194510019BE2002F97AD /* forest.caf in Resources */ = {isa = PBXBuildFile; fileRef = D2EC194210019BE2002F97AD /* forest.caf */; };
+		D2EC194610019BE2002F97AD /* outfile.caf in Resources */ = {isa = PBXBuildFile; fileRef = D2EC194310019BE2002F97AD /* outfile.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,17 +118,11 @@
 		D217E97C0FFDA32D00F7A4A9 /* FileUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileUtil.mm; sourceTree = "<group>"; };
 		D217E97D0FFDA32D00F7A4A9 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		D217E97E0FFDA32D00F7A4A9 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
-		D217E9800FFDA32D00F7A4A9 /* MathUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MathUtil.cpp; path = "Math Libraries/MathUtil.cpp"; sourceTree = "<group>"; };
-		D217E9810FFDA32D00F7A4A9 /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathUtil.h; path = "Math Libraries/MathUtil.h"; sourceTree = "<group>"; };
-		D217E9820FFDA32D00F7A4A9 /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = "Math Libraries/Vector2.cpp"; sourceTree = "<group>"; };
-		D217E9830FFDA32D00F7A4A9 /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = "Math Libraries/Vector2.h"; sourceTree = "<group>"; };
 		D217E9840FFDA32D00F7A4A9 /* OpenGlCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGlCommon.h; sourceTree = "<group>"; };
 		D217E9850FFDA32D00F7A4A9 /* Rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
 		D217E9860FFDA32D00F7A4A9 /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
 		D217E9870FFDA32D00F7A4A9 /* RNG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RNG.cpp; sourceTree = "<group>"; };
 		D217E9880FFDA32D00F7A4A9 /* RNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNG.h; sourceTree = "<group>"; };
-		D217E9890FFDA32D00F7A4A9 /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
-		D217E98A0FFDA32D00F7A4A9 /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
 		D217E9AA0FFDA39300F7A4A9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D217E9AC0FFDA39300F7A4A9 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		D217E9AE0FFDA39300F7A4A9 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -141,9 +136,6 @@
 		D217EAA00FFDA95D00F7A4A9 /* CAMPFIRE.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CAMPFIRE.dat; sourceTree = "<group>"; };
 		D217EAA10FFDA95D00F7A4A9 /* FLAME_BACK.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FLAME_BACK.dat; sourceTree = "<group>"; };
 		D217EAA20FFDA95D00F7A4A9 /* FLAME_FRONT.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FLAME_FRONT.dat; sourceTree = "<group>"; };
-		D217EAA60FFDA96500F7A4A9 /* outfile.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = outfile.caf; sourceTree = "<group>"; };
-		D217EAA70FFDA96500F7A4A9 /* forest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = forest.caf; sourceTree = "<group>"; };
-		D217EAA80FFDA96500F7A4A9 /* photon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = photon.caf; sourceTree = "<group>"; };
 		D217EAAC0FFDA96F00F7A4A9 /* RunningLeft01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningLeft01.png; sourceTree = "<group>"; };
 		D217EAAD0FFDA96F00F7A4A9 /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flame.png; sourceTree = "<group>"; };
 		D217EAAE0FFDA96F00F7A4A9 /* StandingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StandingLeft.png; sourceTree = "<group>"; };
@@ -151,7 +143,18 @@
 		D217EAB00FFDA96F00F7A4A9 /* blankTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankTexture.png; sourceTree = "<group>"; };
 		D217EAB10FFDA96F00F7A4A9 /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
 		D217EAC00FFDA9B900F7A4A9 /* RUNNINGLEFT.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RUNNINGLEFT.dat; sourceTree = "<group>"; };
+		D25B5656100107D70071438F /* MathUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtil.cpp; sourceTree = "<group>"; };
+		D25B5657100107D70071438F /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
+		D25B5659100107E10071438F /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2.cpp; sourceTree = "<group>"; };
+		D25B565A100107E10071438F /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
 		D291884A10001632000958B9 /* Quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quad.cpp; sourceTree = "<group>"; };
+		D2EC18441001765F002F97AD /* TextureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureController.h; sourceTree = "<group>"; };
+		D2EC18451001765F002F97AD /* TextureController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureController.cpp; sourceTree = "<group>"; };
+		D2EC1862100177F9002F97AD /* Texture2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture2D.h; sourceTree = "<group>"; };
+		D2EC1863100177F9002F97AD /* Texture2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture2D.cpp; sourceTree = "<group>"; };
+		D2EC194110019BE1002F97AD /* photon.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = photon.caf; sourceTree = "<group>"; };
+		D2EC194210019BE2002F97AD /* forest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = forest.caf; sourceTree = "<group>"; };
+		D2EC194310019BE2002F97AD /* outfile.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = outfile.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D2EC194110019BE1002F97AD /* photon.caf */,
+				D2EC194210019BE2002F97AD /* forest.caf */,
+				D2EC194310019BE2002F97AD /* outfile.caf */,
 				D217EAC20FFDA9C300F7A4A9 /* Content */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -247,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				D217E9590FFDA32D00F7A4A9 /* djinnengine.h */,
+				D2EC1842100174AE002F97AD /* Texture Manager */,
 				D217E9420FFDA32D00F7A4A9 /* Actors */,
 				D217E9490FFDA32D00F7A4A9 /* Animation */,
 				D217E95A0FFDA32D00F7A4A9 /* Game Screens */,
@@ -276,10 +283,10 @@
 		D217E9490FFDA32D00F7A4A9 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				D217E94B0FFDA32D00F7A4A9 /* Animation.h */,
-				D217E94A0FFDA32D00F7A4A9 /* Animation.cpp */,
 				D217E94D0FFDA32D00F7A4A9 /* AnimationController.h */,
 				D217E94C0FFDA32D00F7A4A9 /* AnimationController.cpp */,
+				D217E94B0FFDA32D00F7A4A9 /* Animation.h */,
+				D217E94A0FFDA32D00F7A4A9 /* Animation.cpp */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -351,12 +358,12 @@
 		D217E9760FFDA32D00F7A4A9 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D25B5659100107E10071438F /* Vector2.cpp */,
+				D25B565A100107E10071438F /* Vector2.h */,
+				D25B5656100107D70071438F /* MathUtil.cpp */,
+				D25B5657100107D70071438F /* MathUtil.h */,
 				D217E97A0FFDA32D00F7A4A9 /* Quad.h */,
 				D291884A10001632000958B9 /* Quad.cpp */,
-				D217E9830FFDA32D00F7A4A9 /* Vector2.h */,
-				D217E9820FFDA32D00F7A4A9 /* Vector2.cpp */,
-				D217E9810FFDA32D00F7A4A9 /* MathUtil.h */,
-				D217E9800FFDA32D00F7A4A9 /* MathUtil.cpp */,
 				D217E9790FFDA32D00F7A4A9 /* Color.h */,
 				D217E9780FFDA32D00F7A4A9 /* Color.cpp */,
 				D217E97B0FFDA32D00F7A4A9 /* FileUtil.h */,
@@ -368,8 +375,6 @@
 				D217E9850FFDA32D00F7A4A9 /* Rectangle.cpp */,
 				D217E9880FFDA32D00F7A4A9 /* RNG.h */,
 				D217E9870FFDA32D00F7A4A9 /* RNG.cpp */,
-				D217E98A0FFDA32D00F7A4A9 /* Texture2D.h */,
-				D217E9890FFDA32D00F7A4A9 /* Texture2D.cpp */,
 			);
 			path = "Utility Classes";
 			sourceTree = "<group>";
@@ -446,11 +451,19 @@
 		D217EACF0FFDAA1F00F7A4A9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				D217EAA60FFDA96500F7A4A9 /* outfile.caf */,
-				D217EAA70FFDA96500F7A4A9 /* forest.caf */,
-				D217EAA80FFDA96500F7A4A9 /* photon.caf */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		D2EC1842100174AE002F97AD /* Texture Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D2EC18441001765F002F97AD /* TextureController.h */,
+				D2EC18451001765F002F97AD /* TextureController.cpp */,
+				D2EC1862100177F9002F97AD /* Texture2D.h */,
+				D2EC1863100177F9002F97AD /* Texture2D.cpp */,
+			);
+			path = "Texture Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,9 +514,6 @@
 				D217EAA30FFDA95D00F7A4A9 /* CAMPFIRE.dat in Resources */,
 				D217EAA40FFDA95D00F7A4A9 /* FLAME_BACK.dat in Resources */,
 				D217EAA50FFDA95D00F7A4A9 /* FLAME_FRONT.dat in Resources */,
-				D217EAA90FFDA96500F7A4A9 /* outfile.caf in Resources */,
-				D217EAAA0FFDA96500F7A4A9 /* forest.caf in Resources */,
-				D217EAAB0FFDA96500F7A4A9 /* photon.caf in Resources */,
 				D217EAB20FFDA97000F7A4A9 /* RunningLeft01.png in Resources */,
 				D217EAB30FFDA97000F7A4A9 /* flame.png in Resources */,
 				D217EAB40FFDA97000F7A4A9 /* StandingLeft.png in Resources */,
@@ -511,6 +521,9 @@
 				D217EAB60FFDA97000F7A4A9 /* blankTexture.png in Resources */,
 				D217EAB70FFDA97000F7A4A9 /* particle.png in Resources */,
 				D217EAC10FFDA9B900F7A4A9 /* RUNNINGLEFT.dat in Resources */,
+				D2EC194410019BE2002F97AD /* photon.caf in Resources */,
+				D2EC194510019BE2002F97AD /* forest.caf in Resources */,
+				D2EC194610019BE2002F97AD /* outfile.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,13 +556,14 @@
 				D217E9A20FFDA32D00F7A4A9 /* Color.cpp in Sources */,
 				D217E9A30FFDA32D00F7A4A9 /* FileUtil.mm in Sources */,
 				D217E9A40FFDA32D00F7A4A9 /* Log.cpp in Sources */,
-				D217E9A50FFDA32D00F7A4A9 /* MathUtil.cpp in Sources */,
-				D217E9A60FFDA32D00F7A4A9 /* Vector2.cpp in Sources */,
 				D217E9A70FFDA32D00F7A4A9 /* Rectangle.cpp in Sources */,
 				D217E9A80FFDA32D00F7A4A9 /* RNG.cpp in Sources */,
-				D217E9A90FFDA32D00F7A4A9 /* Texture2D.cpp in Sources */,
 				D217EA3E0FFDA46C00F7A4A9 /* TestGame.cpp in Sources */,
 				D291884B10001632000958B9 /* Quad.cpp in Sources */,
+				D25B5658100107D70071438F /* MathUtil.cpp in Sources */,
+				D25B565B100107E10071438F /* Vector2.cpp in Sources */,
+				D2EC18461001765F002F97AD /* TextureController.cpp in Sources */,
+				D2EC1864100177F9002F97AD /* Texture2D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,12 +34,17 @@
 #include "SoundController.h"		//OpenAL Sound Controller
 
 //
+//	Graphics Classes
+//
+#include "TextureController.h"		//Controller class for Textures
+#include "Texture2D.h"				//OpenGL Texture
+
+//
 //	Utility Classes
 //
 #include "Serializable.h"			//object serialization
 #include "OpenGlCommon.h"			//OpenGL Headers
 #include "RNG.h"					//Random Number Generator
-#include "Texture2D.h"				//OpenGL Texture
 #include "Rectangle.h"				//Rectangle (x y width height)
 #include "FileUtil.h"				//File Handling
 #include "Log.h"					//Log handling (log files)

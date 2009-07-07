@@ -28,7 +28,8 @@ Animation::~Animation()
 {
 	for ( int i = 0; i < numberOfFrames; ++i )
 	{
-		delete frames[i];
+		//delete frames[i]; //REMOVE: used before TextureController
+		frames[i]->releaseReference();
 		frames[i] = NULL;
 	}
 	
@@ -181,7 +182,9 @@ void Animation::loadAnimation( const string *imageNames, const ImageType &type, 
 	for ( int i = 0; i < numberOfFrames; ++i )
 	{
 		this->imageNames[i] = imageNames[i];
-		images[i] = new Texture2D( imageNames[i], type ); 
+		images[i] = Textures->getTexture( imageNames[i] );
+		images[i]->addReference();
+		//images[i] = new Texture2D( imageNames[i], type ); //used before TextureController
 	}
 	
 	//	now that the images are loaded, load the animation

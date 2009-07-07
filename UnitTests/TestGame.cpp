@@ -53,16 +53,20 @@ void TestGame::testLoadContent()
 	if ( initialized )
 		return;
 	
+	
+//	Textures->getTexture( "RunningLeft01" ); 
+//	
+//	
 	//actor
 	testActor = Actors->loadActor( "CHARACTER", testActor );
 	
 	//load a particle effect. This should create a 'definition' of the particle effect for
 	//	which all other effects of the same type will be copied.
 	Particles->loadParticleEffect( "CAMPFIRE" );
-	
-	//	Starts a particle effect at the specific spot, with the specific variance, and
-	//	duration. This should use the "CAMPFIRE" effect as a template, make a new copy
-	//	of the effect, and start that effect in the location provided.
+//	
+//	//	Starts a particle effect at the specific spot, with the specific variance, and
+//	//	duration. This should use the "CAMPFIRE" effect as a template, make a new copy
+//	//	of the effect, and start that effect in the location provided.
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 200 ), Vector2::ZERO(), 5 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 190 ), Vector2::ZERO(), 10 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 180 ), Vector2::ZERO(), 15 );
@@ -76,19 +80,26 @@ void TestGame::testLoadContent()
 	
 	
 	
-//	SoundController::getInstance()->loadSoundWithKey( "photon", "photon", "caf", 22050 ) ;
-//	SoundController::getInstance()->loadSoundWithKey( "forest", "forest", "caf", 22050 ) ;
-//	
-//	SoundController::getInstance()->playSoundWithKey( "photon", .5f, .5f, Vector2::ZERO(),  true );
+	//Sounds->loadSoundWithKey( "photon", "photon", "caf", 22050 ) ;
+	Sounds->loadSoundWithKey( "forest", "forest", "caf", 22050 ) ;
+	
+	//Sounds->playSoundWithKey( "photon", 1.0f, 1.0f, Vector2::ZERO(),  true );
 
-	//SoundController::getInstance()->playMusicWithKey( "forest", -1 );
+	Sounds->playSoundWithKey( "forest", 1.0f, 1.0f, Vector2::ZERO(), false );
 
+	
+	tex = Textures->getTexture( "RunningLeft01" );
+	tex->addReference();
+	
+	
+	
+	
 	initialized = true;						 
 }
 
 void TestGame::unloadContent()
 { 
-	Actors->removeActor( *testActor );
+	//Actors->removeActor( *testActor );
 }
 
 void TestGame::testUpdate( const float deltaTime )
@@ -100,6 +111,7 @@ void TestGame::testUpdate( const float deltaTime )
 
 void TestGame::testDraw( const float deltaTime )
 {
+	tex->draw( Rectangle(100, 100, 32, 32) );
 	testActor->draw( deltaTime );
 	
 	Particles->draw(deltaTime);
@@ -169,10 +181,14 @@ void TestGame::testAnimationClass()
 	frameNames[2] = "RunningLeft01";
 	frameNames[3] = "RunningLeft02";
 	
-	frames[0] = new Texture2D( "RunningLeft01", PNG );
-	frames[1] = new Texture2D( "RunningLeft02", PNG );
-	frames[2] = new Texture2D( "RunningLeft01", PNG );
-	frames[3] = new Texture2D( "RunningLeft02", PNG );
+	frames[0] = Textures->getTexture( "RunningLeft01" );
+	frames[0]->addReference();
+	frames[1] = Textures->getTexture( "RunningLeft02" );
+	frames[1]->addReference();
+	frames[2] = Textures->getTexture( "RunningLeft01" );
+	frames[2]->addReference();
+	frames[3] = Textures->getTexture( "RunningLeft02" );
+	frames[3]->addReference();
 	
 
 	
@@ -203,7 +219,7 @@ void TestGame::testAnimationClass()
 	delete testAnim;
 	testAnim = NULL;
 	
-	delete [] testTexture;
+	testTexture->releaseReference();
 	
 	delete [] frames;
 	delete [] frameNames;

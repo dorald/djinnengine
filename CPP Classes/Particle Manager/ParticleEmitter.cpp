@@ -83,7 +83,7 @@ ParticleEmitter::~ParticleEmitter()
 	delete [] particles;
 	glDeleteBuffers(1, &verticesID);
 	glDeleteBuffers(1, &colorsID);
-	delete texture;
+	texture->releaseReference();
 	
 	texture = NULL;
 	particles = NULL;
@@ -117,7 +117,7 @@ void ParticleEmitter::setEmitterParameters( const std::string textureName,
 		delete [] this->particles;
 		glDeleteBuffers(1, &this->verticesID);
 		glDeleteBuffers(1, &this->colorsID);
-		delete this->texture;
+		this->texture->releaseReference();
 		
 		this->texture = NULL;
 		this->particles = NULL;
@@ -125,7 +125,8 @@ void ParticleEmitter::setEmitterParameters( const std::string textureName,
 		this->colors = NULL;
 	}
 	
-	this->texture = new Texture2D( textureName, PNG );
+	this->texture = Textures->getTexture( textureName );
+	this->texture->addReference();
 	this->angle = angle;
 	this->angleVariance = angleVariance;
 	this->speed = speed;
@@ -158,7 +159,8 @@ void ParticleEmitter::setEmitterParameters( const std::string textureName,
 
 void ParticleEmitter::setTextureName( const std::string textureName )
 { 
-	this->texture = new Texture2D( textureName, PNG );	
+	//this->texture = new Texture2D( textureName, PNG );	
+	//this->texture = Textures->getTexture( textureName );
 }
 
 void ParticleEmitter::initParticle( Particle &particle )
@@ -308,47 +310,70 @@ void ParticleEmitter::update( const float deltaTime )
 
 void ParticleEmitter::draw( const float deltaTime )
 {
-	//glEnable( GL_TEXTURE_2D );
-
-	glBindTexture( GL_TEXTURE_2D,  texture->getName() );
-
-	
-	glEnable( GL_BLEND );
-	
-	if ( blendAdditive ) 
+#warning Obviously this isn't the way i want to do this... point sprites currently giving me an error when its the only thing being rendered. This was just testing a theory...
+	for (int i = 0; i < particleCount; ++i )
 	{
-		//glBlendFunc( GL_SRC_ALPHA, GL_ONE );
-		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable( GL_BLEND );
+		glAlphaFunc(GL_GREATER, 0.1f);
+		glEnable(GL_ALPHA_TEST);
+		
+		glDisable(GL_DEPTH_TEST);
+		glBlendFunc(GL_ONE, GL_SRC_COLOR);
+		
+		//glColor4f(particles[i].color.red, particles[i].color.green, particles[i].color.blue, particles[i].color.alpha);
+		texture->draw( Rectangle(particles[i].position.x, particles[i].position.y, 32, 32) );	
+		
+		glDisable( GL_ALPHA_TEST );
+		glDisable( GL_BLEND );
 	}
-	else
-	{
-		glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-	}	
+//	glEnable( GL_TEXTURE_2D );
+//
+//	texture->bindTexture();
+//
+//	
+//	glEnable( GL_BLEND );
+//	
+//	if ( blendAdditive ) 
+//	{
+//		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
+//		//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+//	}
+//	else
+//	{
+//		glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+//	}	
+//
+//	//
+//	glAlphaFunc(GL_GREATER, 0.1f);
+//	glEnable(GL_ALPHA_TEST);
+//	//
+//	
+//	glEnable( GL_POINT_SPRITE_OES );
+//	glTexEnvi( GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE );
+//	
+//	glEnableClientState( GL_VERTEX_ARRAY );
+//	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
+//	
+//	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
+//	
+//	glEnableClientState( GL_POINT_SIZE_ARRAY_OES );  // <--------- problem with point size
+//	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
+//	
+//	glEnableClientState(GL_COLOR_ARRAY);
+//	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
+//	glColorPointer(4, GL_FLOAT, 0, 0);
+//	glDrawArrays(GL_POINTS, 0, particleIndex);		// <--------- blows up here
+//	glBindBuffer(GL_ARRAY_BUFFER, 0);
+//	
+//	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
+//	glDisableClientState(GL_COLOR_ARRAY);
+//	glDisableClientState(GL_POINT_SPRITE_OES);
+//	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
+//	glDisableClientState(GL_COLOR_ARRAY);
+//	glDisable(GL_POINT_SPRITE_OES);
+//	glColor4f(1, 1, 1, 1);	
 	
-	glEnable( GL_POINT_SPRITE_OES );
-	glTexEnvi( GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE );
-	
-	glEnableClientState( GL_VERTEX_ARRAY );
-	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
-	
-	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
-	glEnableClientState( GL_POINT_SIZE_ARRAY_OES );
-	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
-	
-	glEnableClientState(GL_COLOR_ARRAY);
-	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
-	glColorPointer(4, GL_FLOAT, 0, 0);
-	glDrawArrays(GL_POINTS, 0, particleIndex);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	
-	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
-	glDisableClientState(GL_COLOR_ARRAY);
-	glDisableClientState(GL_POINT_SPRITE_OES);
-	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
-	glDisableClientState(GL_COLOR_ARRAY);
-	glDisable(GL_POINT_SPRITE_OES);
-	glColor4f(1, 1, 1, 1);	
-	
+
 }
 
 

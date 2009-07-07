@@ -21,7 +21,6 @@
 #include "Actor.h"
 #include "FileUtil.h"
 #include "ActorController.h"
-#include "Texture2D.h"
 #include "MathUtil.h"
 #include "Animation.h"
 #include "AnimationController.h"
@@ -29,6 +28,8 @@
 #include "SoundController.h"
 #include "ParticleController.h"
 #include "ParticleEmitter.h"
+#include "TextureController.h"
+#include "Texture2D.h"
 
 #include <string>
 
@@ -85,6 +86,8 @@ class TestGame
 		void testCharacterClass();	
 		
 		void testParticleEngine();
+		
+		Texture2D *tex;
 	};
 
 #endif
