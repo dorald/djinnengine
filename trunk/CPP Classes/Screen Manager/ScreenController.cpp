@@ -28,7 +28,7 @@ ScreenController::ScreenController() :
 
 ScreenController::~ScreenController()
 {
-	delete blankTexture;
+	blankTexture->releaseReference();
 	delete input;
 	delete screens;
 	delete screensToUpdate;
@@ -79,7 +79,7 @@ void ScreenController::setupView()
 	glMatrixMode(GL_MODELVIEW);
 	
 	glDisable(GL_DEPTH_TEST);
-	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_ONE, GL_SRC_COLOR);
 	glEnable(GL_BLEND);	
 	
 	//	needed to draw textures using Texture2D
@@ -136,7 +136,8 @@ void ScreenController::loadContent()
 	//	to fade the screen in / out.
 	//
 	input = new InputController( LANDSCAPE_MODE );
-	blankTexture = new Texture2D( "blankTexture", PNG );
+	blankTexture = Textures->getTexture( "blankTexture" );
+	blankTexture->addReference();
 
 	//
 	//	Once we are initialized, set the bool values to appropriate values. 
@@ -283,7 +284,7 @@ void ScreenController::killScreen( GameScreen *gameScreen )
 void ScreenController::fadeBackBufferToBlack( float alpha ) const
 {
 	glColor4f(alpha,alpha,alpha,alpha);
-	blankTexture->drawInRect( viewport );
+	blankTexture->draw( viewport );
 	glColor4f(1, 1, 1, 1);	
 }
 

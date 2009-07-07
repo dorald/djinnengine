@@ -34,6 +34,7 @@
 #define ANIMATION_H
 
 #include "Serializable.h"
+#include "TextureController.h"
 #include "Texture2D.h"
 #include "MathUtil.h"
 #include "FileUtil.h"

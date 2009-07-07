@@ -40,6 +40,7 @@
 #define PARTICLEEMITTER_H
 
 #include "Serializable.h"
+#include "TextureController.h"
 #include "Texture2D.h"
 #include "Vector2.h"
 #include "RNG.h"

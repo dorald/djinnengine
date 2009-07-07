@@ -225,7 +225,7 @@ void AnimationController::update( const float deltaTime )
 void AnimationController::draw( const float deltaTime, const Rectangle &spriteBox )
 {	
 	Texture2D* spriteToDraw = currentAnimation->getSpriteToDraw( frame );
-	spriteToDraw->drawInRect( spriteBox );
+	spriteToDraw->draw( spriteBox );
 }
 
 void AnimationController::incrementFrame()
