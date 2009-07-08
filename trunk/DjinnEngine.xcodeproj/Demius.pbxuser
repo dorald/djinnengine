@@ -9,6 +9,7 @@
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = D217E90B0FFD9F9B00F7A4A9 /* DjinnEngine */;
+		activeSDKPreference = iphonesimulator3.0;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* DjinnEngine */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* DjinnEngine */,
@@ -114,10 +115,11 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 268632826;
-			PBXWorkspaceStateSaveDate = 268632826;
+			PBXPerProjectTemplateStateSaveDate = 268756347;
+			PBXWorkspaceStateSaveDate = 268756347;
 		};
 		perUserProjectItems = {
+			D24902A71003056200818037 /* PBXTextBookmark */ = D24902A71003056200818037 /* PBXTextBookmark */;
 			D25B566E10010D350071438F /* PBXTextBookmark */ = D25B566E10010D350071438F /* PBXTextBookmark */;
 			D25B567010010D350071438F /* PBXTextBookmark */ = D25B567010010D350071438F /* PBXTextBookmark */;
 			D25B568610010DFC0071438F /* PBXTextBookmark */ = D25B568610010DFC0071438F /* PBXTextBookmark */;
@@ -204,7 +206,6 @@
 			D2C6B65D1002E39F00312DCA /* PBXTextBookmark */ = D2C6B65D1002E39F00312DCA /* PBXTextBookmark */;
 			D2C6B6D31002EF8200312DCA /* PBXTextBookmark */ = D2C6B6D31002EF8200312DCA /* PBXTextBookmark */;
 			D2C6B6D51002EF8200312DCA /* PBXTextBookmark */ = D2C6B6D51002EF8200312DCA /* PBXTextBookmark */;
-			D2C6B6D91002EF8200312DCA /* PBXTextBookmark */ = D2C6B6D91002EF8200312DCA /* PBXTextBookmark */;
 			D2C6B6DA1002EF8200312DCA /* PBXTextBookmark */ = D2C6B6DA1002EF8200312DCA /* PBXTextBookmark */;
 			D2C6B6DB1002EF8200312DCA /* PBXTextBookmark */ = D2C6B6DB1002EF8200312DCA /* PBXTextBookmark */;
 			D2C6B6DC1002EF8200312DCA /* PBXTextBookmark */ = D2C6B6DC1002EF8200312DCA /* PBXTextBookmark */;
@@ -218,7 +219,6 @@
 			D2C6B75D1002F31C00312DCA /* PBXTextBookmark */ = D2C6B75D1002F31C00312DCA /* PBXTextBookmark */;
 			D2C6B7801002F71900312DCA /* PBXTextBookmark */ = D2C6B7801002F71900312DCA /* PBXTextBookmark */;
 			D2C6B7811002F71900312DCA /* PBXTextBookmark */ = D2C6B7811002F71900312DCA /* PBXTextBookmark */;
-			D2C6B7A51002FE1300312DCA /* PBXTextBookmark */ = D2C6B7A51002FE1300312DCA /* PBXTextBookmark */;
 			D2C6B7A61002FE1300312DCA /* PBXTextBookmark */ = D2C6B7A61002FE1300312DCA /* PBXTextBookmark */;
 			D2C6B7A81002FE1300312DCA /* PBXTextBookmark */ = D2C6B7A81002FE1300312DCA /* PBXTextBookmark */;
 			D2C6B7B81002FE6C00312DCA /* PBXTextBookmark */ = D2C6B7B81002FE6C00312DCA /* PBXTextBookmark */;
@@ -226,14 +226,7 @@
 			D2C6B7BA1002FE6C00312DCA /* PBXTextBookmark */ = D2C6B7BA1002FE6C00312DCA /* PBXTextBookmark */;
 			D2C6B7D71002FF6A00312DCA /* PBXTextBookmark */ = D2C6B7D71002FF6A00312DCA /* PBXTextBookmark */;
 			D2C6B7D81002FF6A00312DCA /* PBXTextBookmark */ = D2C6B7D81002FF6A00312DCA /* PBXTextBookmark */;
-			D2C6B7E21002FF8C00312DCA /* PBXTextBookmark */ = D2C6B7E21002FF8C00312DCA /* PBXTextBookmark */;
-			D2C6B7F61003026700312DCA /* PBXTextBookmark */ = D2C6B7F61003026700312DCA /* PBXTextBookmark */;
-			D2C6B7F81003026700312DCA /* PBXTextBookmark */ = D2C6B7F81003026700312DCA /* PBXTextBookmark */;
 			D2E676F91003035300A5CDDA /* PBXTextBookmark */ = D2E676F91003035300A5CDDA /* PBXTextBookmark */;
-			D2E676FA1003035300A5CDDA /* PBXTextBookmark */ = D2E676FA1003035300A5CDDA /* PBXTextBookmark */;
-			D2E676FB1003035300A5CDDA /* PBXTextBookmark */ = D2E676FB1003035300A5CDDA /* PBXTextBookmark */;
-			D2E676FC1003035300A5CDDA /* PBXTextBookmark */ = D2E676FC1003035300A5CDDA /* PBXTextBookmark */;
-			D2E676FE1003035300A5CDDA /* PBXTextBookmark */ = D2E676FE1003035300A5CDDA /* PBXTextBookmark */;
 			D2EC182E100170AF002F97AD /* PBXTextBookmark */ = D2EC182E100170AF002F97AD /* PBXTextBookmark */;
 			D2EC182F100170AF002F97AD /* PBXTextBookmark */ = D2EC182F100170AF002F97AD /* PBXTextBookmark */;
 			D2EC18561001773F002F97AD /* PBXTextBookmark */ = D2EC18561001773F002F97AD /* PBXTextBookmark */;
@@ -258,6 +251,13 @@
 			D2F0212B0FFF0D0500215130 /* PBXTextBookmark */ = D2F0212B0FFF0D0500215130 /* PBXTextBookmark */;
 			D2F021430FFF0D9800215130 /* PBXTextBookmark */ = D2F021430FFF0D9800215130 /* PBXTextBookmark */;
 			D2F021560FFF0E1100215130 /* PBXTextBookmark */ = D2F021560FFF0E1100215130 /* PBXTextBookmark */;
+			D2F0DA041004E69E0096099F /* PBXTextBookmark */ = D2F0DA041004E69E0096099F /* PBXTextBookmark */;
+			D2F0DA061004E69E0096099F /* PBXTextBookmark */ = D2F0DA061004E69E0096099F /* PBXTextBookmark */;
+			D2F0DA191004E7940096099F /* PBXTextBookmark */ = D2F0DA191004E7940096099F /* PBXTextBookmark */;
+			D2F0DA1A1004E7940096099F /* PBXTextBookmark */ = D2F0DA1A1004E7940096099F /* PBXTextBookmark */;
+			D2F0DA1B1004E7940096099F /* PBXTextBookmark */ = D2F0DA1B1004E7940096099F /* PBXTextBookmark */;
+			D2F0DA1E1004E7D10096099F /* PBXTextBookmark */ = D2F0DA1E1004E7D10096099F /* PBXTextBookmark */;
+			D2F0DA1F1004E7D10096099F /* PBXTextBookmark */ = D2F0DA1F1004E7D10096099F /* PBXTextBookmark */;
 		};
 		sourceControlManager = D217E9190FFD9FA100F7A4A9 /* Source Control */;
 		userBuildSettings = {
@@ -355,8 +355,8 @@
 	D217E9460FFDA32D00F7A4A9 /* ActorController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1095, 1540}}";
-			sepNavSelRange = "{90, 0}";
-			sepNavVisRange = "{25, 2347}";
+			sepNavSelRange = "{1891, 0}";
+			sepNavVisRange = "{25, 2330}";
 		};
 	};
 	D217E9470FFDA32D00F7A4A9 /* Character.cpp */ = {
@@ -459,9 +459,9 @@
 	};
 	D217E9640FFDA32D00F7A4A9 /* InputState.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {981, 606}}";
-			sepNavSelRange = "{175, 0}";
-			sepNavVisRange = "{0, 459}";
+			sepNavIntBoundsRect = "{{0, 0}, {807, 397}}";
+			sepNavSelRange = "{398, 0}";
+			sepNavVisRange = "{0, 447}";
 		};
 	};
 	D217E9660FFDA32D00F7A4A9 /* Particle.cpp */ = {
@@ -509,9 +509,9 @@
 	};
 	D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1095, 5614}}";
-			sepNavSelRange = "{9164, 0}";
-			sepNavVisRange = "{8462, 1655}";
+			sepNavIntBoundsRect = "{{0, 0}, {1095, 5796}}";
+			sepNavSelRange = "{9492, 4}";
+			sepNavVisRange = "{8806, 1886}";
 		};
 	};
 	D217E96D0FFDA32D00F7A4A9 /* ParticleEmitter.h */ = {
@@ -701,6 +701,29 @@
 			sepNavIntBoundsRect = "{{0, 0}, {764, 606}}";
 			sepNavSelRange = "{70, 13}";
 			sepNavVisRange = "{0, 92}";
+		};
+	};
+	D24902A71003056200818037 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D24902A81003056200818037 /* ParticleEmitter.m */;
+		name = "ParticleEmitter.m: 304";
+		rLen = 34;
+		rLoc = 11379;
+		rType = 0;
+		vrLen = 1599;
+		vrLoc = 11826;
+	};
+	D24902A81003056200818037 /* ParticleEmitter.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = ParticleEmitter.m;
+		path = "/Users/Demius/Downloads/OGLGame Tutorial 10/ParticleEmitter.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {833, 5250}}";
+			sepNavSelRange = "{11379, 34}";
+			sepNavVisRange = "{11826, 1599}";
+			sepNavWindowFrame = "{{1402, -93}, {892, 739}}";
 		};
 	};
 	D25B5656100107D70071438F /* MathUtil.cpp */ = {
@@ -1574,16 +1597,6 @@
 		vrLen = 1308;
 		vrLoc = 0;
 	};
-	D2C6B6D91002EF8200312DCA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D217E9460FFDA32D00F7A4A9 /* ActorController.h */;
-		name = "ActorController.h: 8";
-		rLen = 0;
-		rLoc = 90;
-		rType = 0;
-		vrLen = 2347;
-		vrLoc = 25;
-	};
 	D2C6B6DA1002EF8200312DCA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D217E9450FFDA32D00F7A4A9 /* ActorController.cpp */;
@@ -1714,16 +1727,6 @@
 		vrLen = 847;
 		vrLoc = 1590;
 	};
-	D2C6B7A51002FE1300312DCA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D2EC1863100177F9002F97AD /* Texture2D.cpp */;
-		name = "Texture2D.cpp: 112";
-		rLen = 0;
-		rLoc = 3189;
-		rType = 0;
-		vrLen = 1810;
-		vrLoc = 1989;
-	};
 	D2C6B7A61002FE1300312DCA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D217E9660FFDA32D00F7A4A9 /* Particle.cpp */;
@@ -1794,61 +1797,6 @@
 		vrLen = 1587;
 		vrLoc = 1430;
 	};
-	D2C6B7E21002FF8C00312DCA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */;
-		name = "ParticleEmitter.cpp: 318";
-		rLen = 67;
-		rLoc = 9294;
-		rType = 0;
-		vrLen = 1715;
-		vrLoc = 8565;
-	};
-	D2C6B7F61003026700312DCA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D2C6B7F71003026700312DCA /* Texture2D.cpp */;
-		name = "Texture2D.cpp: 310";
-		rLen = 56;
-		rLoc = 8238;
-		rType = 0;
-		vrLen = 1216;
-		vrLoc = 7334;
-	};
-	D2C6B7F71003026700312DCA /* Texture2D.cpp */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.cpp.cpp;
-		name = Texture2D.cpp;
-		path = /Users/Demius/Desktop/Texture2D.cpp;
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {954, 4382}}";
-			sepNavSelRange = "{8238, 56}";
-			sepNavVisRange = "{7325, 1225}";
-			sepNavWindowFrame = "{{114, 39}, {892, 739}}";
-		};
-	};
-	D2C6B7F81003026700312DCA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D2C6B7F91003026700312DCA /* ParticleEmitter.m */;
-		name = "ParticleEmitter.m: 304";
-		rLen = 34;
-		rLoc = 11379;
-		rType = 0;
-		vrLen = 1599;
-		vrLoc = 11826;
-	};
-	D2C6B7F91003026700312DCA /* ParticleEmitter.m */ = {
-		isa = PBXFileReference;
-		lastKnownFileType = sourcecode.c.objc;
-		name = ParticleEmitter.m;
-		path = "/Users/Demius/Downloads/OGLGame Tutorial 10/ParticleEmitter.m";
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {833, 5250}}";
-			sepNavSelRange = "{11379, 34}";
-			sepNavVisRange = "{11826, 1547}";
-		};
-	};
 	D2E676F91003035300A5CDDA /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D217EA3C0FFDA46C00F7A4A9 /* TestGame.cpp */;
@@ -1858,64 +1806,6 @@
 		rType = 0;
 		vrLen = 1690;
 		vrLoc = 3107;
-	};
-	D2E676FA1003035300A5CDDA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D217EA3C0FFDA46C00F7A4A9 /* TestGame.cpp */;
-		name = "TestGame.cpp: 113";
-		rLen = 0;
-		rLoc = 3457;
-		rType = 0;
-		vrLen = 1690;
-		vrLoc = 3107;
-	};
-	D2E676FB1003035300A5CDDA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */;
-		name = "ParticleEmitter.cpp: 313";
-		rLen = 0;
-		rLoc = 9164;
-		rType = 0;
-		vrLen = 1655;
-		vrLoc = 8462;
-	};
-	D2E676FC1003035300A5CDDA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D2E676FD1003035300A5CDDA /* Texture2D.cpp */;
-		name = "Texture2D.cpp: 310";
-		rLen = 56;
-		rLoc = 8238;
-		rType = 0;
-		vrLen = 1225;
-		vrLoc = 7325;
-	};
-	D2E676FD1003035300A5CDDA /* Texture2D.cpp */ = {
-		isa = PBXFileReference;
-		name = Texture2D.cpp;
-		path = /Users/Demius/Desktop/Texture2D.cpp;
-		sourceTree = "<absolute>";
-	};
-	D2E676FE1003035300A5CDDA /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D2E676FF1003035300A5CDDA /* ParticleEmitter.m */;
-		name = "ParticleEmitter.m: 304";
-		rLen = 34;
-		rLoc = 11379;
-		rType = 0;
-		vrLen = 1599;
-		vrLoc = 11826;
-	};
-	D2E676FF1003035300A5CDDA /* ParticleEmitter.m */ = {
-		isa = PBXFileReference;
-		name = ParticleEmitter.m;
-		path = "/Users/Demius/Downloads/OGLGame Tutorial 10/ParticleEmitter.m";
-		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {833, 5250}}";
-			sepNavSelRange = "{11379, 34}";
-			sepNavVisRange = "{11826, 1599}";
-			sepNavWindowFrame = "{{1402, -93}, {892, 739}}";
-		};
 	};
 	D2EC182E100170AF002F97AD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1981,9 +1871,9 @@
 	};
 	D2EC1863100177F9002F97AD /* Texture2D.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {807, 3178}}";
-			sepNavSelRange = "{461, 0}";
-			sepNavVisRange = "{37, 388}";
+			sepNavIntBoundsRect = "{{0, 0}, {1095, 3038}}";
+			sepNavSelRange = "{2671, 51}";
+			sepNavVisRange = "{1832, 1938}";
 		};
 	};
 	D2EC187310017830002F97AD /* PBXTextBookmark */ = {
@@ -2199,5 +2089,79 @@
 		rType = 0;
 		vrLen = 1437;
 		vrLoc = 3517;
+	};
+	D2F0DA041004E69E0096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */;
+		name = "ParticleEmitter.cpp: 324";
+		rLen = 4;
+		rLoc = 9492;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 8806;
+	};
+	D2F0DA061004E69E0096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */;
+		name = "ParticleEmitter.cpp: 324";
+		rLen = 4;
+		rLoc = 9492;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 8806;
+	};
+	D2F0DA191004E7940096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D2EC1863100177F9002F97AD /* Texture2D.cpp */;
+		name = "Texture2D.cpp: 96";
+		rLen = 51;
+		rLoc = 2671;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 1832;
+	};
+	D2F0DA1A1004E7940096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: extra qualification 'ActorController::' on member 'loadActor'";
+		fRef = D217E9460FFDA32D00F7A4A9 /* ActorController.h */;
+		rLen = 1;
+		rLoc = 53;
+		rType = 1;
+	};
+	D2F0DA1B1004E7940096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D2EC1863100177F9002F97AD /* Texture2D.cpp */;
+		name = "Texture2D.cpp: 96";
+		rLen = 51;
+		rLoc = 2671;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 1832;
+	};
+	D2F0DA1E1004E7D10096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D217E9460FFDA32D00F7A4A9 /* ActorController.h */;
+		name = "ActorController.h: 54";
+		rLen = 0;
+		rLoc = 1891;
+		rType = 0;
+		vrLen = 2330;
+		vrLoc = 25;
+	};
+	D2F0DA1F1004E7D10096099F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D2F0DA201004E7D10096099F /* ParticleEmitter.m */;
+		name = "ParticleEmitter.m: 304";
+		rLen = 34;
+		rLoc = 11379;
+		rType = 0;
+		vrLen = 1599;
+		vrLoc = 11826;
+	};
+	D2F0DA201004E7D10096099F /* ParticleEmitter.m */ = {
+		isa = PBXFileReference;
+		name = ParticleEmitter.m;
+		path = "/Users/Demius/Downloads/OGLGame Tutorial 10/ParticleEmitter.m";
+		sourceTree = "<absolute>";
 	};
 }
