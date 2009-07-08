@@ -20,7 +20,7 @@ struct InputState
 	bool isBeingTouched;
 	
 	//	overloaded operator that sets one state equal to another.
-	InputState &InputState::operator =( const InputState &state );
+	InputState &operator =( const InputState &state );
 };
 
 #endif

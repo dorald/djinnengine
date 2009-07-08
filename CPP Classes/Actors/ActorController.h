@@ -51,7 +51,7 @@ public:
 	
 #warning TODO:: Do I want to return a pointer to the actor, or do I wish the controller keep all information and flush that information when scene changes?
 	template< class T >
-	T* ActorController::loadActor( const string &asset, T* actor )
+	T* loadActor( const string &asset, T* actor )
 	{
 		//this function will be revamped when I decide what needs to happen with 
 		//	how the actors are stored. They are currently stored in a map
