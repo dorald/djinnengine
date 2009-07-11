@@ -33,20 +33,32 @@ class Texture2D
 	friend class TextureController;
 	
 public:
+	//	Get the GL id code used to identify 
 	GLuint getId() const { return _glId; }
+	
+	//	get the width and height of the texture in pixels
 	GLuint getWidth() const { return _width; }
 	GLuint getHeight() const { return _height; }
-	
+
+	//	reference counters for the texture. When an object needs to use a texture
+	//	that has already been created, it will add a reference. When they no longer
+	//	need it, it should release the reference. Once the reference counter has
+	//	reached 0, the texture will deallocate any memory associated with it, and
+	//	remove itself from the texture map.
 	void addReference();
 	void releaseReference();
+	
+	//	Tells the texture controller to bind the texture using glBindTexture() function
 	void bindTexture();
+	
+	//	Render the texture to screen using a variety of parameters.
 	void draw( const Rectangle& rectangle );
 	void draw( const Rectangle& rectangle, const Color& color );
 	void draw( const Rectangle& rectangle, const Color& color, const bool blendAdditive );
 	
 protected:
 	//	Only the TextureController class should be able to instanciate
-	//	a texture
+	//	a texture object
 	Texture2D( const std::string &asset );
 	~Texture2D();
 	
