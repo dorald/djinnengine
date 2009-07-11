@@ -78,14 +78,9 @@ void TestGame::testLoadContent()
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 240, 170 ), Vector2::ZERO(), -1 );
 	
 	
-	
-	
-	//Sounds->loadSoundWithKey( "photon", "photon", "caf", 22050 ) ;
-	Sounds->loadSoundWithKey( "forest", "forest", "caf", 22050 ) ;
-	
-	//Sounds->playSoundWithKey( "photon", 1.0f, 1.0f, Vector2::ZERO(),  true );
+	Sounds->loadSound( "photon", 22050 );
+	Sounds->playSound( "photon", .5, .5, Vector2::ZERO(), true );
 
-	Sounds->playSoundWithKey( "forest", 1.0f, 1.0f, Vector2::ZERO(), false );
 
 	
 	tex = Textures->getTexture( "RunningLeft01" );

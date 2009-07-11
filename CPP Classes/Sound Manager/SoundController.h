@@ -33,36 +33,26 @@
 class SoundController
 {
 public:
+	static SoundController* getInstance();
+
+	void loadSound( const std::string &asset, const ALuint frequency );
+	ALuint playSound( const std::string &asset, const ALfloat gain, const ALfloat pitch, const Vector2 &location, const bool loop );
+
+protected:
 	SoundController();
 	~SoundController();
 	
-	static SoundController* getInstance();
-
-	void setBackgroundMusicVolume( const ALfloat theVolume );
-	
-	void loadSoundWithKey( const std::string &key, const std::string &asset, const std::string &extension, const ALuint frequency );
-	void loadBackgroundMusicWithKey( const std::string &key, const std::string &asset, const std::string &extension );
-	
-	void playMusicWithKey( const std::string &key, const int timesToRepeat );
-	ALuint playSoundWithKey( const std::string &key, const ALfloat gain, const ALfloat pitch, const Vector2 &location, const bool loop );
-	
-protected:
+private:
 	static SoundController* instance;
 	const int MAX_SOURCES;
 	
-	ALfloat musicVolume;
+	typedef std::map<string, ALuint> soundBank;
+	soundBank soundEffects;
 	
-	// OpenAL context for playing sounds
-	ALCcontext *context;
+	ALCcontext *context;	// OpenAL context for playing sounds
+	ALCdevice *device;		// The device we are going to use to play sounds
+	ALuint *sources;		// Array to store the OpenAL buffers we create
 	
-	// The device we are going to use to play sounds
-	ALCdevice *device;
-	
-	// Array to store the OpenAL buffers we create to store sounds we want to play
-	ALuint *sources;
-	std::map<string, ALuint> soundLibrary;
-	std::map<string, ALuint> musicLibrary;
-
 	UInt32 getAudioSize( const AudioFileID &fileID );
 	int getAvailableSource();
 };

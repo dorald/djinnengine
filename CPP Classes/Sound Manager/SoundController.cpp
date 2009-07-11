@@ -9,7 +9,9 @@
 
 #include "SoundController.h"
 
-
+#pragma mark
+#pragma mark Singleton Pattern
+#pragma mark ----------
 //	Soundcontroller instance pointer
 SoundController* SoundController::instance = 0;
 
@@ -17,15 +19,15 @@ SoundController* SoundController::getInstance()
 {
 	//	If no instance has been created, create one
 	if ( instance == 0 )
-	{
 		instance = new SoundController;
-	}
 	
 	//	otherwise, just return the instance
 	return instance;
 }
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ----------
 
 SoundController::SoundController() : MAX_SOURCES( 32 )
 {
@@ -33,7 +35,6 @@ SoundController::SoundController() : MAX_SOURCES( 32 )
 	context = NULL;
 	sources = NULL;
 	
-	musicVolume = 1.0f;	
 	device = alcOpenDevice( NULL );
 	
 	if( !device )
@@ -52,13 +53,10 @@ SoundController::SoundController() : MAX_SOURCES( 32 )
 
 SoundController::~SoundController()
 {
-	std::map<string, ALuint>::iterator it;
-	
-	for ( it = musicLibrary.begin(); it != musicLibrary.end(); it++ )
-		musicLibrary.erase( it );
+	soundBank::iterator it;
 
-	for ( it = soundLibrary.begin(); it != soundLibrary.end(); it++ )
-		soundLibrary.erase( it );
+	for ( it = soundEffects.begin(); it != soundEffects.end(); it++ )
+		soundEffects.erase( it );
 	
 	alSourceStopv(MAX_SOURCES, sources);	
     alDeleteSources(MAX_SOURCES, sources);
@@ -68,27 +66,31 @@ SoundController::~SoundController()
     alcCloseDevice( device );
 }
 
-#pragma mark Music Functions
+#pragma mark
+#pragma mark Music
+#pragma mark ----------
 
 #warning Implement all music functions for sound engine (OGG Format)
-void SoundController::setBackgroundMusicVolume( const ALfloat theVolume )
-{
-}
-void SoundController::loadBackgroundMusicWithKey( const std::string &key, const std::string &asset, const std::string &extension )
-{
-}
+//void SoundController::setMusicVolume( const ALfloat theVolume )
+//{
+//}
+//void SoundController::loadMusic( const std::string &key, const std::string &asset, const std::string &extension )
+//{
+//}
+//
+//void SoundController::playMusic( const std::string &key, const int timesToRepeat )
+//{
+//}
 
-void SoundController::playMusicWithKey( const std::string &key, const int timesToRepeat )
-{
-}
+#pragma mark
+#pragma mark Sound Effects
+#pragma mark ----------
 
-#pragma mark Sound Effects Functions.
-
-void SoundController::loadSoundWithKey( const std::string &key, const std::string &asset, const std::string &extension, const ALuint frequency )
+void SoundController::loadSound( const std::string &asset, const ALuint frequency )
 {	
 	bool loaded = true;
 	AudioFileID audioID;
-	std::string path = FileUtil::getInstance()->getPathToFile( asset, extension );
+	std::string path = FileUtil::getInstance()->getPathToFile( asset, "caf" );
 	CFURLRef theURL = CFURLCreateFromFileSystemRepresentation(kCFAllocatorDefault, (UInt8*)path.c_str(), strlen(path.c_str()), false);
 	if (theURL == NULL)
 	{
@@ -107,7 +109,7 @@ void SoundController::loadSoundWithKey( const std::string &key, const std::strin
 	UInt32 fileSize = getAudioSize( audioID );
 	
 	// this is where the audio data will live for the moment
-	unsigned char outData[ fileSize ];// = sizeof( fileSize ); //malloc( fileSize );
+	unsigned char outData[ fileSize ];
 	
 	// this where we actually get the bytes from the file and put them
 	// into the data buffer
@@ -127,24 +129,22 @@ void SoundController::loadSoundWithKey( const std::string &key, const std::strin
 	alBufferData( bufferID, AL_FORMAT_STEREO16, outData, fileSize, 44100); 
 	
 	// save the buffer so I can release it later
-	soundLibrary[ key ] = bufferID;
+	soundEffects[ asset ] = bufferID;
 }
 
-ALuint SoundController::playSoundWithKey( const std::string &key, const ALfloat gain, const ALfloat pitch, const Vector2 &location, const bool loop )
+ALuint SoundController::playSound( const std::string &asset, const ALfloat gain, const ALfloat pitch, const Vector2 &location, const bool loop )
 {
 	ALenum err = alGetError(); // clear the error code
 	
 	// Find the buffer linked to the key which has been passed in
-	std::map<string, ALuint>::iterator it = soundLibrary.find( key );
+	soundBank::iterator it = soundEffects.find( asset );
 	ALuint bufferID = it->second;
 	
 	// Find an available source i.e. it is currently not playing anything
 	int index = getAvailableSource();
 	
-	// Make sure that the source is clean by resetting the buffer assigned to the source
-	// to 0
-	alSourcei(sources[ index ], AL_BUFFER, 0);
 	//Attach the buffer we have looked up to the source we have just found
+	alSourcei(sources[ index ], AL_BUFFER, 0);
 	alSourcei(sources[ index ], AL_BUFFER, bufferID);
 	
 	// Set the pitch and gain of the source
@@ -153,11 +153,10 @@ ALuint SoundController::playSoundWithKey( const std::string &key, const ALfloat 
 	
 	// Set the looping value
 	if( loop ) 
-	{
 		alSourcei( sources[ index ], AL_LOOPING, AL_TRUE );
-	} else {
+	else 
 		alSourcei( sources[ index ], AL_LOOPING, AL_FALSE );
-	}
+
 	
 	// Check to see if there were any errors
 	err = alGetError();
@@ -174,7 +173,9 @@ ALuint SoundController::playSoundWithKey( const std::string &key, const ALfloat 
 	return sources[ index ];	
 }
 
+#pragma mark
 #pragma mark Helper Functions
+#pragma mark ----------
 
 int SoundController::getAvailableSource()
 {
