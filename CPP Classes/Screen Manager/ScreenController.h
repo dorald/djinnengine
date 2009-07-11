@@ -40,6 +40,7 @@
 #include "Texture2D.h"
 #include "Rectangle.h"
 #include "InputController.h"
+#include "Color.h"
 #include <list>
 using std::list;
 
