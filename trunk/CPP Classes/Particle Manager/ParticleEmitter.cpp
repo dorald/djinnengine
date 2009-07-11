@@ -8,7 +8,9 @@
 
 #include "ParticleEmitter.h"
 
+#pragma mark
 #pragma mark Object De-Serialization >> function.
+#pragma mark -----------------------------
 
 std::istream& operator >> ( std::istream &inStream, ParticleEmitter &value )
 {
@@ -66,7 +68,9 @@ std::istream& operator >> ( std::istream &inStream, ParticleEmitter &value )
 	return inStream;
 }
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark -----------------------------
 
 ParticleEmitter::ParticleEmitter()
 {
@@ -91,7 +95,9 @@ ParticleEmitter::~ParticleEmitter()
 	colors = NULL;
 }
 
+#pragma mark
 #pragma mark Initialization Functions
+#pragma mark -----------------------------
 
 void ParticleEmitter::setEmitterParameters( const std::string textureName,
 										   const GLfloat angle,
@@ -124,8 +130,8 @@ void ParticleEmitter::setEmitterParameters( const std::string textureName,
 		this->vertices = NULL;
 		this->colors = NULL;
 	}
-	
-	this->texture = Textures->getTexture( textureName );
+
+	setTextureName(textureName);
 	this->texture->addReference();
 	this->angle = angle;
 	this->angleVariance = angleVariance;
@@ -159,8 +165,13 @@ void ParticleEmitter::setEmitterParameters( const std::string textureName,
 
 void ParticleEmitter::setTextureName( const std::string textureName )
 { 
-	//this->texture = new Texture2D( textureName, PNG );	
-	//this->texture = Textures->getTexture( textureName );
+	//	if the texture is null, release the reference holding it.
+	if ( this->texture != NULL )
+		texture->releaseReference();
+
+	//	obtain the texture ID from the controller, and add reference to the texture. 
+	texture = Textures->getTexture( textureName );
+	texture->addReference();
 }
 
 void ParticleEmitter::initParticle( Particle &particle )
@@ -194,7 +205,9 @@ void ParticleEmitter::initParticle( Particle &particle )
 	particle.deltaColor.alpha = (end.alpha - start.alpha) / particle.timeToLive;
 }
 
+#pragma mark
 #pragma mark Start / Stop Particle Emitter
+#pragma mark -----------------------------
 
 void ParticleEmitter::startParticleEmitter( const Vector2 &source, const Vector2 &sourceVariance, const GLfloat duration )
 {
@@ -216,7 +229,50 @@ void ParticleEmitter::stopParticleEmitter()
 	emitCounter = 0;
 }
 
+#pragma mark 
 #pragma mark Update / Draw Functions
+#pragma mark  -----------------------------
+
+void ParticleEmitter::update( const float deltaTime )
+{
+	checkForNewParticles(deltaTime);
+	updateParticles(deltaTime);
+	
+	if (stopEmitting && particleCount == 0)
+		stopParticleEmitter();
+}
+
+void ParticleEmitter::checkForNewParticles( const float deltaTime )
+{
+	//	check to see if we need to addParticle()
+	if ( active && emissionRate )
+	{
+		float rate = 1.0f / emissionRate;
+		emitCounter += deltaTime;
+		
+		while (!stopEmitting && 
+			   particleCount < maxParticles &&
+			   emitCounter > rate)
+		{
+			addParticle();
+			emitCounter -= rate;
+		}
+		
+		elapsedTime += deltaTime;
+		
+		//	duration of -1 is an emiter that won't stop emitting
+		if (duration != -1 &&
+			duration < elapsedTime)
+		{
+			stopEmitting = true;
+			
+			//	if we're through emitting, and we don't have 
+			//	any particles left... stop the emitter.
+			if (particleCount == 0)
+				stopParticleEmitter();
+		}
+	}
+}
 
 bool ParticleEmitter::addParticle()
 {
@@ -230,150 +286,103 @@ bool ParticleEmitter::addParticle()
 	return true;
 }
 
-void ParticleEmitter::update( const float deltaTime )
+void ParticleEmitter::updateParticles( const float deltaTime )
 {
-	if ( active && emissionRate )
-	{
-		float rate = 1.0f / emissionRate;
-		emitCounter += deltaTime;
-		
-		while ( !stopEmitting && particleCount < maxParticles && emitCounter > rate )
-		{
-			addParticle();
-			emitCounter -= rate;
-		}
-		
-		elapsedTime += deltaTime;
-		if ( duration != -1 && duration < elapsedTime )
-		{
-			stopEmitting = true;
-			
-			if (particleCount == 0)
-			{
-				stopParticleEmitter();
-			}
-		}
-	}
-	
-	//	reset the particle index before updating the particles
+	//	reset the particle index before updating any particles
 	particleIndex = 0;
 	
-	//	update all the particles in the array
-	while ( particleIndex < particleCount )
+	//	update all particles in the array
+	while (particleIndex < particleCount)
 	{
-		Particle *currentParticle = &particles[ particleIndex ];
+		Particle* cp = &particles[particleIndex];
 		
-		if ( currentParticle->timeToLive > 0 )
+		//	if the current particle is alive, update it.
+		if (cp->timeToLive > 0)
 		{
-			currentParticle->direction += gravity;
-			currentParticle->position += currentParticle->direction;
+			//	update particle
+			cp->direction += gravity;
+			cp->position += cp->direction;
+			cp->timeToLive -= deltaTime;
 			
-			//reduce the lifespan
-			currentParticle->timeToLive -= deltaTime;
+			//	update vertices array
+			vertices[particleIndex].x = cp->position.x;
+			vertices[particleIndex].y = cp->position.y;
+			vertices[particleIndex].size = cp->size;
 			
-			vertices[ particleIndex ].x = currentParticle->position.x;
-			vertices[ particleIndex ].y = currentParticle->position.y;
-			
-			vertices[ particleIndex ].size = currentParticle->size;
-			
-			//update particle color
-			currentParticle->color.red += ( currentParticle->deltaColor.red * deltaTime );
-			currentParticle->color.green += ( currentParticle->deltaColor.green * deltaTime );
-			currentParticle->color.blue += ( currentParticle->deltaColor.blue * deltaTime );
-			currentParticle->color.alpha += ( currentParticle->deltaColor.alpha * deltaTime );
-			
-			//place the color of the current particle in to the color array
-			colors[ particleIndex ] = currentParticle->color;
+			//	update color array
+			cp->color.red += ( cp->deltaColor.red * deltaTime );
+			cp->color.green += ( cp->deltaColor.green * deltaTime );
+			cp->color.blue += ( cp->deltaColor.blue * deltaTime );
+			cp->color.alpha += ( cp->deltaColor.alpha * deltaTime );
+			colors[particleIndex] = cp->color;
 			
 			++particleIndex;
 		}
-		else
+		else	//the particle is dead
 		{
-			if ( particleIndex != particleCount - 1 )
-			{
-				particles[ particleIndex ] = particles[ particleCount - 1 ];
-			}
+			//	if the particle index is not already at the end of the array, lets
+			//	place the ending particle in the dead particles spot. This keeps all
+			//	active particles at the start of the array, while all the dead
+			//	particles remain in the tail end of the array. 
+			if (particleIndex != particleCount - 1)
+				particles[particleIndex] = particles[particleCount - 1];
 			
 			--particleCount;
 		}
 	}
+}
+
+void ParticleEmitter::draw( const float deltaTime )
+{	
+	glPushMatrix();
 	
-	//if (allParticlesDead)
-	//	stopParticleEmitter();
+	glMatrixMode(GL_MODELVIEW);
+	
+	//	Texture Blending fuctions
+	if ( blendAdditive )
+	{
+		glEnable(GL_BLEND);	
+		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	}
+	
+	glEnable(GL_TEXTURE_2D);
+	glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	
+	glEnable( GL_POINT_SPRITE_OES );
+	glTexEnvi( GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE );
 	
 	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
 	glBufferData( GL_ARRAY_BUFFER, sizeof(PointSprite) * maxParticles, vertices, GL_DYNAMIC_DRAW );
 	glBindBuffer( GL_ARRAY_BUFFER, colorsID );
 	glBufferData( GL_ARRAY_BUFFER, sizeof(Color) * maxParticles, colors, GL_DYNAMIC_DRAW );
 	glBindBuffer( GL_ARRAY_BUFFER, 0 );
-}
-
-void ParticleEmitter::draw( const float deltaTime )
-{
-#warning Obviously this isn't the way i want to do this... point sprites currently giving me an error when its the only thing being rendered. This was just testing a theory...
-	for (int i = 0; i < particleCount; ++i )
-	{
-		glEnable( GL_BLEND );
-		glAlphaFunc(GL_GREATER, 0.1f);
-		glEnable(GL_ALPHA_TEST);
-		
-		glDisable(GL_DEPTH_TEST);
-		glBlendFunc(GL_ONE, GL_SRC_COLOR);
-		
-		//glColor4f(particles[i].color.red, particles[i].color.green, particles[i].color.blue, particles[i].color.alpha);
-		texture->draw( Rectangle(particles[i].position.x, particles[i].position.y, 32, 32) );	
-		
-		glDisable( GL_ALPHA_TEST );
-		glDisable( GL_BLEND );
-	}
-//	glEnable( GL_TEXTURE_2D );
-//
-//	texture->bindTexture();
-//
-//	
-//	glEnable( GL_BLEND );
-//	
-//	if ( blendAdditive ) 
-//	{
-//		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-//		//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-//	}
-//	else
-//	{
-//		glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-//	}	
-//
-//	//
-//	glAlphaFunc(GL_GREATER, 0.1f);
-//	glEnable(GL_ALPHA_TEST);
-//	//
-//	
-//	glEnable( GL_POINT_SPRITE_OES );
-//	glTexEnvi( GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE );
-//	
-//	glEnableClientState( GL_VERTEX_ARRAY );
-//	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
-//	
-//	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
-//	
-//	glEnableClientState( GL_POINT_SIZE_ARRAY_OES );  // <--------- problem with point size
-//	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
-//	
-//	glEnableClientState(GL_COLOR_ARRAY);
-//	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
-//	glColorPointer(4, GL_FLOAT, 0, 0);
-//	glDrawArrays(GL_POINTS, 0, particleIndex);		// <--------- blows up here
-//	glBindBuffer(GL_ARRAY_BUFFER, 0);
-//	
-//	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
-//	glDisableClientState(GL_COLOR_ARRAY);
-//	glDisableClientState(GL_POINT_SPRITE_OES);
-//	glDisableClientState(GL_POINT_SIZE_ARRAY_OES);
-//	glDisableClientState(GL_COLOR_ARRAY);
-//	glDisable(GL_POINT_SPRITE_OES);
-//	glColor4f(1, 1, 1, 1);	
+	texture->bindTexture();
 	
-
+	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
+	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
+	
+	glEnableClientState( GL_POINT_SIZE_ARRAY_OES ); // <--------- problem with point size
+	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
+	
+	glEnableClientState(GL_COLOR_ARRAY);
+	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
+	glColorPointer(4, GL_FLOAT, 0, 0);
+	glDrawArrays(GL_POINTS, 0, particleIndex);// <--------- blows up here
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	
+	
+	glDisable( GL_POINT_SPRITE_OES );
+	glDisable(GL_BLEND);
+	glDisable(GL_TEXTURE_2D);
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	glDisableClientState(GL_COLOR_ARRAY);
+	
+	glPopMatrix();	
 }
 
 
