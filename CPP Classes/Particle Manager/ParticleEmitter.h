@@ -144,6 +144,17 @@ private:
 	
 	bool addParticle();
 	void initParticle( Particle &particle );
+	
+	//	called from the update function: Checks to see if enough time has
+	//	passed for a new particle to be emitted from the particle emitter.
+	void checkForNewParticles( const float deltaTime);
+	
+	//	called from the update function: Updates all active particles as 
+	//	well as updates the vertices and color arrays in preperation for
+	//	OpenGL draw calls. Will check to see if a particle has died, and if
+	//	a particle has died, it will adjust the array to reflect the death
+	//	of the brave little soldier. 
+	void updateParticles( const float deltaTime );
 };
 
 #endif
