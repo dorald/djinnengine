@@ -15,6 +15,7 @@
 
 #include "OpenGlCommon.h"
 #include "Rectangle.h"
+#include "Color.h"
 
 #include <QuartzCore/QuartzCore.h>	//used to load texture into memory
 #include <string>
@@ -40,6 +41,8 @@ public:
 	void releaseReference();
 	void bindTexture();
 	void draw( const Rectangle& rectangle );
+	void draw( const Rectangle& rectangle, const Color& color );
+	void draw( const Rectangle& rectangle, const Color& color, const bool blendAdditive );
 	
 protected:
 	//	Only the TextureController class should be able to instanciate
