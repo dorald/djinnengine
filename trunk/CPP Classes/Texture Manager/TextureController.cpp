@@ -9,7 +9,9 @@
 
 #include "TextureController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ---------
 
 TextureController* TextureController::instance = 0;
 
@@ -29,7 +31,9 @@ TextureController::~TextureController()
 {
 }
 
+#pragma mark
 #pragma mark Texture Management
+#pragma mark ---------
 
 Texture2D* TextureController::getTexture( const std::string &asset )
 {	

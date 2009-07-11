@@ -9,7 +9,9 @@
 #include "Texture2D.h"
 #include "TextureController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ---------
 
 Texture2D::Texture2D( const std::string &asset )
 {
@@ -19,13 +21,20 @@ Texture2D::~Texture2D()
 {
 }
 
+#pragma mark
 #pragma mark Reference Counting
+#pragma mark ---------
 
 void Texture2D::addReference()
 {
+	++_referenceCount;
 }
 void Texture2D::releaseReference()
 {
+	--_referenceCount;
+	
+	if (_referenceCount == 0)
+		Textures->releaseTexture(assetName);
 }
 
 void Texture2D::bindTexture() 
@@ -33,7 +42,9 @@ void Texture2D::bindTexture()
 	Textures->bindTexture( _glId ); 
 }
 
+#pragma mark
 #pragma mark Load Texture from file.
+#pragma mark ---------
 
 void Texture2D::loadFile( const std::string& asset )
 {

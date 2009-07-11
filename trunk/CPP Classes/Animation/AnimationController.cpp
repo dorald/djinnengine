@@ -8,8 +8,9 @@
 
 #include "AnimationController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
-
+#pragma mark ----------
 AnimationController::AnimationController()
 {
 	currentAnimation = NULL;
@@ -83,7 +84,9 @@ AnimationController& AnimationController::operator =( const AnimationController 
 	return *this;
 }
 
+#pragma mark
 # pragma mark Functions
+#pragma mark ----------
 
 #pragma mark Loading and Removing an animation
 void AnimationController::loadAnimation( const string &asset )
@@ -127,7 +130,10 @@ void AnimationController::removeAnimation( const string &name )
 	availableAnimations.erase( it );
 }
 
+#pragma mark
 #pragma mark Animation playback.
+#pragma mark ----------
+
 void AnimationController::playAnimation( const string &name )
 {
 	//	if the animation is currently playing, there is no
@@ -199,8 +205,9 @@ bool AnimationController::isAnimationPlaying( const string &name )
 	
 	return false;
 }
-
+#pragma mark
 #pragma mark Update and Draw functions.
+#pragma mark ----------
 
 void AnimationController::update( const float deltaTime )
 {
