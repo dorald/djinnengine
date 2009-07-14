@@ -126,7 +126,6 @@ void Texture2D::draw( const Rectangle& rectangle, const Color& color, const bool
 	{
 		 glEnable(GL_BLEND);	
 		 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		 //glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
 	//	needed to draw textures using Texture2D
@@ -166,8 +165,8 @@ void Texture2D::draw( const Rectangle& rectangle, const Color& color, const bool
 	glColor4f(color.red, color.green, color.blue, color.alpha);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4); 
+	
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisable( GL_BLEND );

@@ -58,7 +58,7 @@ void TestGame::testLoadContent()
 //	
 //	
 	//actor
-	testActor = Actors->loadActor( "CHARACTER", testActor );
+	testActor = Actors->loadActor<Character>( "CHARACTER" );
 	
 	//load a particle effect. This should create a 'definition' of the particle effect for
 	//	which all other effects of the same type will be copied.
@@ -94,21 +94,18 @@ void TestGame::testLoadContent()
 
 void TestGame::unloadContent()
 { 
-	//Actors->removeActor( *testActor );
+	//Actors->removeActor( testActor );
 }
 
 void TestGame::testUpdate( const float deltaTime )
 {
-	testActor->setPosition( Vector2(testActor->getPosition()->x - .1f, testActor->getPosition()->y) );
-	testActor->update( deltaTime );
+	Actors->update( deltaTime );
 	Particles->update( deltaTime );
 }
 
 void TestGame::testDraw( const float deltaTime )
 {
-	tex->draw( Rectangle(100, 100, 32, 32) );
-	testActor->draw( deltaTime );
-	
+	Actors->draw( deltaTime );
 	Particles->draw(deltaTime);
 }
 
@@ -251,10 +248,6 @@ void TestGame::testAnimationController()
 
 void TestGame::testCharacterClass()
 {
-	Character *ninja;
-	Actors->loadActor( "CHARACTER", ninja );
-
-	ninja->update( .003f );
 }	
 
 void TestGame::testParticleEngine()
