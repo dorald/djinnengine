@@ -6,7 +6,7 @@
  *  Copyright 2009 __MyCompanyName__. All rights reserved.
  *
  */
-
+	
 #include "ActorController.h"
 
 
@@ -79,7 +79,7 @@ void ActorController::setActorsIdentity( Actor *actor )
 
 void ActorController::removeActor( const string &identity )
 {
-	map<string, Actor*>::iterator it = actors.find( identity );
+	actorMap::iterator it = actors.find( identity );
 	delete it->second;
 	it->second = NULL;
 	actors.erase( it );
@@ -92,10 +92,24 @@ void ActorController::removeActor( const Actor &actor )
 
 void ActorController::update( const float deltaTime )
 {
-#warning TODO:: Every actor that needs to be updated, call their update function.
+	actorMap::iterator it = actors.begin();
+	for( /* none */ ; it != actors.end(); it++)
+	{
+		//	call the actors update function
+		it->second->update(deltaTime);
+		
+		//	TODO::perform any other updates the actor may need.
+		//		- Check Collisions
+		//		- etc etc
+	}
 }
 
 void ActorController::draw( const float deltaTime )
 {
-#warning TODO:: Every actor that needs to be drawn, call their draw function.
+	actorMap::iterator it = actors.begin();
+	for( /* none */ ; it != actors.end(); it++)
+	{
+		//	call the actors update function
+		it->second->draw( deltaTime );
+	}
 }

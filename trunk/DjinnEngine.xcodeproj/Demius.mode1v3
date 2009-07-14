@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>D2083198100C3059008DA045</string>
+						<string>D2083206100C3B8F008DA045</string>
 						<key>history</key>
 						<array>
 							<string>D2083152100C2C55008DA045</string>
@@ -309,9 +309,8 @@
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>D217EA3B0FFDA46C00F7A4A9</string>
 								<string>D217E9410FFDA32D00F7A4A9</string>
-								<string>D2EC1842100174AE002F97AD</string>
 								<string>D217E9420FFDA32D00F7A4A9</string>
-								<string>D217E9650FFDA32D00F7A4A9</string>
+								<string>D217E9490FFDA32D00F7A4A9</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FABC05509CD000000102</string>
@@ -319,8 +318,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
-									<integer>6</integer>
+									<integer>9</integer>
+									<integer>7</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
@@ -365,7 +364,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>Texture2D.cpp</string>
+								<string>ActorController.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,11 +372,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>Texture2D.cpp</string>
+										<string>ActorController.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D2083197100C3059008DA045</string>
+										<string>D2083205100C3B8F008DA045</string>
 										<key>history</key>
 										<array>
 											<string>D2F021560FFF0E1100215130</string>
@@ -413,7 +412,6 @@
 											<string>D2C6B6171002DCBA00312DCA</string>
 											<string>D2C6B7131002F25F00312DCA</string>
 											<string>D2C6B7171002F25F00312DCA</string>
-											<string>D2C6B75D1002F31C00312DCA</string>
 											<string>D2C6B7801002F71900312DCA</string>
 											<string>D2C6B7A61002FE1300312DCA</string>
 											<string>D2C6B7B91002FE6C00312DCA</string>
@@ -431,10 +429,6 @@
 											<string>D243631B1008FC020016A6C3</string>
 											<string>D243631C1008FC020016A6C3</string>
 											<string>D243631D1008FC020016A6C3</string>
-											<string>D24363361008FC5D0016A6C3</string>
-											<string>D24363371008FC5D0016A6C3</string>
-											<string>D24363381008FC5D0016A6C3</string>
-											<string>D24363391008FC5D0016A6C3</string>
 											<string>D2436370100916780016A6C3</string>
 											<string>D24363F3100943220016A6C3</string>
 											<string>D24363F4100943220016A6C3</string>
@@ -442,15 +436,21 @@
 											<string>D2083132100C2C55008DA045</string>
 											<string>D2083134100C2C55008DA045</string>
 											<string>D2083135100C2C55008DA045</string>
-											<string>D2083136100C2C55008DA045</string>
 											<string>D2083138100C2C55008DA045</string>
 											<string>D2083139100C2C55008DA045</string>
 											<string>D208313A100C2C55008DA045</string>
 											<string>D208317B100C2E77008DA045</string>
 											<string>D208318F100C3059008DA045</string>
 											<string>D2083190100C3059008DA045</string>
-											<string>D2083191100C3059008DA045</string>
-											<string>D2083166100C2D4D008DA045</string>
+											<string>D208319A100C329F008DA045</string>
+											<string>D20831AC100C33CF008DA045</string>
+											<string>D20831BD100C36E6008DA045</string>
+											<string>D20831BE100C36E6008DA045</string>
+											<string>D20831BF100C36E6008DA045</string>
+											<string>D20831EA100C3809008DA045</string>
+											<string>D20831F0100C3AEC008DA045</string>
+											<string>D20831FC100C3B81008DA045</string>
+											<string>D20831FD100C3B81008DA045</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -552,6 +552,42 @@
 											<string>D2083194100C3059008DA045</string>
 											<string>D2083195100C3059008DA045</string>
 											<string>D2083196100C3059008DA045</string>
+											<string>D208319D100C329F008DA045</string>
+											<string>D208319E100C329F008DA045</string>
+											<string>D20831A4100C3309008DA045</string>
+											<string>D20831B0100C33CF008DA045</string>
+											<string>D20831B1100C33CF008DA045</string>
+											<string>D20831B3100C33CF008DA045</string>
+											<string>D20831C2100C36E6008DA045</string>
+											<string>D20831C3100C36E6008DA045</string>
+											<string>D20831C4100C36E6008DA045</string>
+											<string>D20831C5100C36E6008DA045</string>
+											<string>D20831C6100C36E6008DA045</string>
+											<string>D20831C7100C36E6008DA045</string>
+											<string>D20831C8100C36E6008DA045</string>
+											<string>D20831C9100C36E6008DA045</string>
+											<string>D20831CA100C36E6008DA045</string>
+											<string>D20831CB100C36E6008DA045</string>
+											<string>D20831CC100C36E6008DA045</string>
+											<string>D20831CD100C36E6008DA045</string>
+											<string>D20831CE100C36E6008DA045</string>
+											<string>D20831CF100C36E6008DA045</string>
+											<string>D20831D0100C36E6008DA045</string>
+											<string>D20831D1100C36E6008DA045</string>
+											<string>D20831D2100C36E6008DA045</string>
+											<string>D20831D3100C36E6008DA045</string>
+											<string>D20831D4100C36E6008DA045</string>
+											<string>D20831D5100C36E6008DA045</string>
+											<string>D20831D6100C36E6008DA045</string>
+											<string>D20831D7100C36E6008DA045</string>
+											<string>D20831EC100C3809008DA045</string>
+											<string>D20831F2100C3AEC008DA045</string>
+											<string>D20831F3100C3AEC008DA045</string>
+											<string>D20831F4100C3AEC008DA045</string>
+											<string>D20831F5100C3AEC008DA045</string>
+											<string>D20831F6100C3AEC008DA045</string>
+											<string>D20831F7100C3AEC008DA045</string>
+											<string>D20831FE100C3B81008DA045</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -748,8 +784,8 @@
 		<string>D2083156100C2C55008DA045</string>
 		<string>D2083157100C2C55008DA045</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>D2E39DDD0F84969F005F4866</string>
 		<string>D2083150100C2C55008DA045</string>
+		<string>D2E39DDD0F84969F005F4866</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/Demius/Documents/XCODE Projects/DjinnEngine/DjinnEngine.xcodeproj</string>
 	</array>
@@ -844,7 +880,7 @@
 			<key>WindowToolGUID</key>
 			<string>D2E39DDD0F84969F005F4866</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

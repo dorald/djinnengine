@@ -10,8 +10,10 @@
 //	An Actor is a class that can be used as the basis for all characters and objects
 //	within the game. "Actor," the way it was visioned, can be used by any game object
 //	without a graphic (IE: Traps, Ambient Sounds, etc) but currently the functionality
-//	for that does not exist. I have not made this class abstract, although I may in 
-//	the future, as there is no reason an Actor should be created directly.
+//	for that does not exist.
+//
+//	The actor class is an abstract class, and no direct object should be instanciated
+//	from it.. It must be used as a base class. 
 //
 //	Actors are the data classes that will be controlled via the Actor Controller, and
 //	serialized in the same fasion of "ASSETNAME.dat" in the application bundle.
@@ -100,13 +102,8 @@ public:
 	//	this class. Should be overridden in any derived classes
 	virtual string getClassName() { return "Actor"; }
 	
-	//	Called once per frame, this function makes the necessary
-	//	updates to the Actor. The base implementation just updates
-	//	the animations and intervals, but a subclass override
-	//	can perform whatever extra processing is required. 
-	//	IMPORTANT:: if a derived class overrides this function, you should
-	//	call the base class Update function.
-	virtual void update( const float deltaTime );
+	virtual void update( const float deltaTime ) = 0;
+	virtual void draw( const float deltaTime ) = 0;
 	
 protected:
 	string identity;

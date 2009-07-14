@@ -99,11 +99,7 @@ public:
 	//	play the default animation so the Character has something to show
 	//	to screen (IE: the game doesn't crash from a null exception :D )
 	void initializeAnimationController();
-	
-	//	Update and Draw the character to screen. Since the ActorController will
-	//	handle most of hte update logic, (since the Character is a Model class)
-	//	the only thing that really needs to be updated by the Character is its
-	//	spritebox and animation.
+
 	virtual void update( const float deltaTime);
 	virtual void draw( const float deltaTime );
 	
