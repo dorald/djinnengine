@@ -75,7 +75,7 @@ class TestGame
 		
 		//	Tests the Actor and ActorController class
 		void testActorClass();
-		Character *testActor;
+		std::string testActor;
 		
 		//	Tests the creation, update, and draw of an animation and the 
 		//	eventual execution of the AnimationController class.
