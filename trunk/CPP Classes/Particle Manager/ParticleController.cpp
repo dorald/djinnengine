@@ -8,7 +8,9 @@
 
 #include "ParticleController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ----------
 
 ParticleController* ParticleController::instance = 0;
 
@@ -30,7 +32,19 @@ ParticleController::~ParticleController()
 {
 }
 
+#pragma mark
 #pragma mark Functions
+#pragma mark ----------
+
+bool ParticleController::loadParticleEffect( const std::string asset )
+{
+	ParticleEffect *effect = new ParticleEffect;
+	Files->unSerialize( asset, *effect );
+	
+	effects[ asset ] = effect;
+	
+	return true;
+}
 
 void ParticleController::startParticleEffect( const std::string name, const Vector2 location,
 						 const Vector2 variance, const GLfloat duration )
@@ -52,31 +66,24 @@ void ParticleController::flushParticleEffects()
 	effectsToDeleteCount = 0; 
 }
 
-bool ParticleController::loadParticleEffect( const std::string asset )
-{
-	ParticleEffect *effect = new ParticleEffect;
-	Files->unSerialize( asset, *effect );
-	
-	effects[ asset ] = effect;
-		
-	return true;
-}
-
+#pragma mark
 #pragma mark Update / Draw functions.
+#pragma mark ----------
 
 void ParticleController::update( const float deltaTime )
-{
+{int count = 0;
 	//	So far this update function does nothing more than cycle through
 	//	each particle emitter and tell that emitter to update itself
 	std::list<ParticleEffect*>::iterator it;
 	
 	for ( it = activeParticleEffects.begin(); it != activeParticleEffects.end(); it++ )
-	{
+	{++count;
 		(*it)->update( deltaTime );
 		if ( !(*it)->isActive() )
 		{
 			effectsToDelete[ effectsToDeleteCount ] = *it;
 			++effectsToDeleteCount;
+			
 		}
 	}
 

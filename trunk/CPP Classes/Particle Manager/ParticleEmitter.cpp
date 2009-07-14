@@ -334,6 +334,13 @@ void ParticleEmitter::updateParticles( const float deltaTime )
 
 void ParticleEmitter::draw( const float deltaTime )
 {	
+	GLfloat texCoords[] = {
+        0.0, 1.0,
+        1.0, 1.0,
+        0.0, 0.0,
+        1.0, 0.0
+    };
+	
 	glPushMatrix();
 	
 	glMatrixMode(GL_MODELVIEW);
@@ -361,16 +368,17 @@ void ParticleEmitter::draw( const float deltaTime )
 	glBindBuffer( GL_ARRAY_BUFFER, 0 );
 	texture->bindTexture();
 	
-	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
+    glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
+	glBindBuffer( GL_ARRAY_BUFFER, verticesID );	
 	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
 	
-	glEnableClientState( GL_POINT_SIZE_ARRAY_OES ); // <--------- problem with point size
+	glEnableClientState( GL_POINT_SIZE_ARRAY_OES );
 	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
 	
 	glEnableClientState(GL_COLOR_ARRAY);
 	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
 	glColorPointer(4, GL_FLOAT, 0, 0);
-	glDrawArrays(GL_POINTS, 0, particleIndex);// <--------- blows up here
+	glDrawArrays(GL_POINTS, 0, particleIndex);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	
 	

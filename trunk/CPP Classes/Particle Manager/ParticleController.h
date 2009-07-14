@@ -49,6 +49,11 @@ public:
 	//get the instance of the particle controller
 	static ParticleController* getInstance();
 
+	//	loads a particle effect into memory. This particle effect will be loaded
+	//	into a map, and when any particle effects are started, they will be copied
+	//	from this loaded effect.
+	bool loadParticleEffect( const std::string asset );
+	
 	//	Create a particle effect with the specific name at the specific location.
 	//	This will construct a new particle effect at the specific location for the
 	//	specified time frame. Once the particle effect has run its course, it will be
@@ -56,11 +61,6 @@ public:
 	//	duration of -1 is infinite. 
 	void startParticleEffect( const std::string name, const Vector2 location,
 							 const Vector2 variance, const GLfloat duration );
-	
-	//	loads a particle effect into memory. This particle effect will be loaded
-	//	into a map, and when any particle effects are started, they will be copied
-	//	from this loaded effect.
-	bool loadParticleEffect( const std::string asset );
 	
 	//	cycles through all active particle effects, and updates each emitter within
 	//	the effect. If the particle effect has run its course, it will flush the
