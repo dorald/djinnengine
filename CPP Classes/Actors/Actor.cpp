@@ -140,8 +140,3 @@ bool Actor::setAlpha( const float value )
 	return true;
 }
 
-void Actor::update( const float deltaTime )
-{
-#warning TODO:: Update any animation or logic this object may require. Currently being 'faked' in the testActor object in the UnitTests.
-}
-

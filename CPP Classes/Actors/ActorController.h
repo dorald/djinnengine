@@ -27,6 +27,7 @@
 #define Actors ActorController::getInstance()
 
 #include "Actor.h"
+#include "Character.h"
 
 #include <string>
 #include <sstream>
@@ -95,7 +96,8 @@ protected:
 	//	All actors active in the game world.
 	//	string = Actors identity name
 	//	Actor* = The base class pointer to the actor.
-	map<string, Actor*> actors;
+	typedef map<string, Actor*> actorMap;
+	actorMap actors;
 	
 private:
 	static ActorController* instance;

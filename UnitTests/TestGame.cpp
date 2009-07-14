@@ -129,34 +129,34 @@ void TestGame::testMathUtilities()
 
 void TestGame::testActorClass()
 {
-	//	IMPORTANT:
-	//	In the game, the ActorController should be the only class that instanciates 
-	//	an actor object. For example; you would call 
-	//	Actors->loadActor( assetName, actorPointer );
-	Actor *act = new Actor();
-	
-	act->setAlpha( .50f );
-	
-	//	identities are unique and assigned when the object is constructed.. Calling this function
-	//	should not change the identity
-	act->setIdentity( "newIdentity" ); 	
-	act->setName( "Werewolf ");
-	act->setPosition( Vector2::ZERO() );
-	act->setSize( Vector2(32, 32) );
-	act->update(.003f);
-	
-	//	One actors Update and Draw method will be called, since there is 
-	//	one actor in the 'actors' map
-	Actors->update( .003f );
-	Actors->draw( .003f );
-
-	delete act;
-	act = NULL;
-	
-	//	Update and Draw still called, but now there are no actors
-	//	in the 'actors' map
-	Actors->update( .003f );
-	Actors->draw( .003f );
+//	//	IMPORTANT:
+//	//	In the game, the ActorController should be the only class that instanciates 
+//	//	an actor object. For example; you would call 
+//	//	Actors->loadActor( assetName, actorPointer );
+//	Actor *act = new Actor();
+//	
+//	act->setAlpha( .50f );
+//	
+//	//	identities are unique and assigned when the object is constructed.. Calling this function
+//	//	should not change the identity
+//	act->setIdentity( "newIdentity" ); 	
+//	act->setName( "Werewolf ");
+//	act->setPosition( Vector2::ZERO() );
+//	act->setSize( Vector2(32, 32) );
+//	act->update(.003f);
+//	
+//	//	One actors Update and Draw method will be called, since there is 
+//	//	one actor in the 'actors' map
+//	Actors->update( .003f );
+//	Actors->draw( .003f );
+//
+//	delete act;
+//	act = NULL;
+//	
+//	//	Update and Draw still called, but now there are no actors
+//	//	in the 'actors' map
+//	Actors->update( .003f );
+//	Actors->draw( .003f );
 	
 }
 
