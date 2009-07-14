@@ -48,25 +48,17 @@ public:
 	//	the Templates. I am unfamiliar with templates enough to pre-compile what
 	//	I need as an .obj file, but was told this sloppy method would work for
 	//	what I needed.
-	
-#warning TODO:: Do I want to return a pointer to the actor, or do I wish the controller keep all information and flush that information when scene changes?
+	//
+	//	The actor will be deserialized, and the ID will be returned in case the
+	//	client wishes to hold onto that information (IE: If the player character
+	//	is being deserialized)
 	template< class T >
-	T* loadActor( const string &asset, T* actor )
+	std::string loadActor( const std::string &asset )
 	{
-		//this function will be revamped when I decide what needs to happen with 
-		//	how the actors are stored. They are currently stored in a map
-		//	but also a pointer to the actor is returned for the client to
-		//	use however they need to... seems redundant to me and its not in line
-		//	with how the rest of the engine is programmed. 
-		
-		//	maybe the best way to do it is return the actors identity so the client
-		//	can gain access to the actor via the identity, but doesn't have the actor
-		//	pointer itself?
-		actor = new T;
-		FileUtil::getInstance()->unSerialize( asset, *actor );
+		T* actor = new T;
+		Files->unSerialize( asset, *actor );
 		setActorsIdentity( actor );
-		
-		return actor;
+		return actor->getIdentity();
 	}
 	
 	//	Search through all active actors for a specific actor named X.
