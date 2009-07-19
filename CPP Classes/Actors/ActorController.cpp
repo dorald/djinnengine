@@ -9,6 +9,9 @@
 	
 #include "ActorController.h"
 
+#pragma mark
+#pragma mark Singleton Function 
+#pragma mark ----------
 
 ActorController* ActorController::instance = 0;// initialize pointer
 ActorController::ActorController()
@@ -27,21 +30,21 @@ ActorController* ActorController::getInstance()
 	return instance;
 }
 
-const Actor* ActorController::getActorNamed( const string value )
+#pragma mark
+#pragma mark Control Functions
+#pragma mark ---------- 
+
+const Actor* ActorController::getActorWithId( const string value )
 {
-	map<string, Actor*>::iterator it = actors.find( value );
+	actorMap::iterator it = actors.find( value );
 	
 	//	return the results of our search (Either the Actor or NULL)
 	//	if actor is not found, NULL is returned. Otherwise, the pointer
 	//	to the actor is returned.
 	if ( it == actors.end() )
-	{
 		return NULL;
-	}
-	else
-	{
-		return it->second;
-	}
+	
+	return it->second;
 }
 
 void ActorController::setActorsIdentity( Actor *actor )
@@ -61,10 +64,10 @@ void ActorController::setActorsIdentity( Actor *actor )
 		iteratedName.str("");
 		
 		//	set the iteratedName to the actors className + the current counter.
-		//	IE: Dragon_32
+		//	IE: Dragon_32 ... 1 through N
 		iteratedName << identity << '_' <<  counter++;
 		
-	} while ( getActorNamed( iteratedName.str() ) != NULL );
+	} while ( getActorWithId( iteratedName.str() ) != NULL );
 	
 	//	store the iteratedName into identity string
 	identity = iteratedName.str();
@@ -74,7 +77,7 @@ void ActorController::setActorsIdentity( Actor *actor )
 	//	if the identity HAS been set, false will be returned
 	//	and the character is already on the character map.
 	if ( actor->setIdentity( identity ) )
-		actors[ identity ] = actor;//add actor to the map
+		actors[ identity ] = actor;	
 }
 
 void ActorController::removeActor( const string &identity )
@@ -89,6 +92,10 @@ void ActorController::removeActor( const Actor &actor )
 {
 	removeActor( actor.getIdentity() );
 }
+
+#pragma mark
+#pragma mark Update / Draw
+#pragma mark ----------
 
 void ActorController::update( const float deltaTime )
 {

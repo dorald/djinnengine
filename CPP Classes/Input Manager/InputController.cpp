@@ -1,8 +1,9 @@
 
 #include "InputController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
-
+#pragma mark ----------
  InputController::InputController( bool isLandscape )
 {
 	this->isLandscape = isLandscape;
@@ -30,7 +31,9 @@ InputController::~InputController()
 	delete queryState;
 }
 
-#pragma mark Update Functions
+#pragma mark
+#pragma mark Update
+#pragma mark ----------
 
 //
 //	Updates the input manager; Moves the current state into
@@ -59,7 +62,9 @@ void InputController::updateQueryState( bool isBeingTouched, const Vector2 &touc
 	queryState->touchLocation = touchLocation;
 }
 
-#pragma mark Utility Functions
+#pragma mark
+#pragma mark Utility
+#pragma mark ----------
 
 void InputController::convertCoordinatesToLandscape() const
 {

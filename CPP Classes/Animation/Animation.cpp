@@ -7,7 +7,9 @@
 //
 string Animation::FileExtension = "dat";
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ----------
 Animation::Animation() 
 {
 	asset = "";
@@ -36,7 +38,9 @@ Animation::~Animation()
 	delete [] frames;
 }
 
-#pragma mark Object Serialization >> and << functions
+#pragma mark
+#pragma mark Serialization Functions
+#pragma mark ----------
 
 std::istream& operator >>( std::istream &inStream, Animation &value )
 {	
@@ -105,7 +109,9 @@ std::ostream& operator <<( std::ostream &oStream, Animation &value )
 	return oStream;
 }
 
-#pragma mark Overloaded operators
+#pragma mark
+#pragma mark Overloaded Operators
+#pragma mark ----------
 Animation& Animation::operator =( const Animation &copy )
 {
 	//self assignment check
@@ -141,7 +147,9 @@ Texture2D* Animation::operator []( const int value ) const
 	return getSpriteToDraw( value );
 }
 
-#pragma mark Properties
+#pragma mark
+#pragma mark Functions
+#pragma mark ----------
 
 void Animation::setName( string value )
 {
@@ -152,8 +160,6 @@ void Animation::setName( string value )
 	if ( name != value )
 		name = value;
 }
-
-#pragma mark Functions
 
 Texture2D* Animation::getSpriteToDraw( const int value ) const
 {

@@ -12,6 +12,10 @@
 //forward declaration
 #include "ActorController.h"
 
+#pragma mark
+#pragma mark Constructor(s) / Destructor
+#pragma mark ----------
+
 Actor::Actor()
 {
 	position = NULL;
@@ -27,6 +31,10 @@ Actor::~Actor()
 	position = NULL;
 	size = NULL;
 }
+
+#pragma mark
+#pragma mark Serialization Operators
+#pragma mark ----------
 
 std::istream& operator >>( std::istream &inStream, Actor &value )
 {
@@ -74,18 +82,17 @@ std::ostream& operator <<( std::ostream &outStream, Actor &value )
 	return outStream;
 }
 
+#pragma mark
+#pragma mark Mutators
+#pragma mark ----------
+
 bool Actor::setIdentity( const string &value )
 {
 	//	if the identity has already been set, do not
-	//	re-set the identity. Object must be destroyed
-	//	and re-created to reset an identity. 
+	//	re-set the identity.
 	if ( identity.length() > 0)
-	{
 		return false;
-	}
-	
-	//	if the identity has not been set, set it
-	//	and return true
+
 	identity = value;
 	return true;
 }
@@ -132,8 +139,6 @@ bool Actor::setSize( const Vector2 &value )
 
 bool Actor::setAlpha( const float value )
 {
-	//	if alpha is not the current value
-	//	set alpha to the current value
 	if ( alpha != value )
 		alpha = value;
 	

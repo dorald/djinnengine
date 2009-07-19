@@ -9,6 +9,10 @@
 
 #include "Character.h"
 
+#pragma mark
+#pragma mark Serialization Operators
+#pragma mark ----------
+
 istream &operator >>( istream &inStream, Character &value )
 {
 	//	since the actor class is the Character's base class,
@@ -45,6 +49,10 @@ ostream &operator <<( ostream &outStream, Character &value )
 	return outStream;
 }
 
+#pragma mark
+#pragma mark Constructor(s) / Destructor
+#pragma mark ----------
+
 Character::Character()
 {
 	animation = new AnimationController;
@@ -64,7 +72,10 @@ Character::~Character()
 	delete animationAssetNames;
 }
 
-#pragma mark Properties
+#pragma mark
+#pragma mark Functions
+#pragma mark ----------
+
 bool Character::setDestination( const Vector2 &value )
 {
 	if ( destination == NULL )
@@ -90,9 +101,6 @@ bool Character::setVelocity( const Vector2 &value )
 	
 	return true;
 }
-
-
-#pragma mark Functions
 
 void Character::initializeAnimationController()
 {
@@ -121,6 +129,10 @@ void Character::setAnimationAssetNames( const string *value )
 	}
 	
 }
+
+#pragma mark
+#pragma mark Update / Draw
+#pragma mark ----------
 
 void Character::updateSpriteBox()
 {

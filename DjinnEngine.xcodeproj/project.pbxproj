@@ -13,6 +13,7 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28FD15000DC6FC520079059D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD14FF0DC6FC520079059D /* OpenGLES.framework */; };
 		28FD15080DC6FC5B0079059D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD15070DC6FC5B0079059D /* QuartzCore.framework */; };
+		D2068D56101377DB005F4D9D /* StandingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = D2068D55101377DB005F4D9D /* StandingLeft.png */; };
 		D217E9350FFDA21700F7A4A9 /* DjinnEngineAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D217E9320FFDA21700F7A4A9 /* DjinnEngineAppDelegate.mm */; };
 		D217E9360FFDA21700F7A4A9 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D217E9340FFDA21700F7A4A9 /* EAGLView.mm */; };
 		D217E98B0FFDA32D00F7A4A9 /* Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9430FFDA32D00F7A4A9 /* Actor.cpp */; };
@@ -48,7 +49,7 @@
 		D217EAA40FFDA95D00F7A4A9 /* FLAME_BACK.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA10FFDA95D00F7A4A9 /* FLAME_BACK.dat */; };
 		D217EAA50FFDA95D00F7A4A9 /* FLAME_FRONT.dat in Resources */ = {isa = PBXBuildFile; fileRef = D217EAA20FFDA95D00F7A4A9 /* FLAME_FRONT.dat */; };
 		D217EAB20FFDA97000F7A4A9 /* RunningLeft01.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAC0FFDA96F00F7A4A9 /* RunningLeft01.png */; };
-		D217EAB40FFDA97000F7A4A9 /* StandingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAE0FFDA96F00F7A4A9 /* StandingLeft.png */; };
+		D217EAB40FFDA97000F7A4A9 /* StandingLeft01.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAE0FFDA96F00F7A4A9 /* StandingLeft01.png */; };
 		D217EAB50FFDA97000F7A4A9 /* RunningLeft02.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAAF0FFDA96F00F7A4A9 /* RunningLeft02.png */; };
 		D217EAB60FFDA97000F7A4A9 /* blankTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAB00FFDA96F00F7A4A9 /* blankTexture.png */; };
 		D217EAB70FFDA97000F7A4A9 /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = D217EAB10FFDA96F00F7A4A9 /* particle.png */; };
@@ -74,6 +75,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* DjinnEngine_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DjinnEngine_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2068D55101377DB005F4D9D /* StandingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StandingLeft.png; sourceTree = "<group>"; };
 		D217E9310FFDA21700F7A4A9 /* DjinnEngineAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DjinnEngineAppDelegate.h; sourceTree = "<group>"; };
 		D217E9320FFDA21700F7A4A9 /* DjinnEngineAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DjinnEngineAppDelegate.mm; sourceTree = "<group>"; };
 		D217E9330FFDA21700F7A4A9 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		D217EAA10FFDA95D00F7A4A9 /* FLAME_BACK.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FLAME_BACK.dat; sourceTree = "<group>"; };
 		D217EAA20FFDA95D00F7A4A9 /* FLAME_FRONT.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FLAME_FRONT.dat; sourceTree = "<group>"; };
 		D217EAAC0FFDA96F00F7A4A9 /* RunningLeft01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningLeft01.png; sourceTree = "<group>"; };
-		D217EAAE0FFDA96F00F7A4A9 /* StandingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StandingLeft.png; sourceTree = "<group>"; };
+		D217EAAE0FFDA96F00F7A4A9 /* StandingLeft01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StandingLeft01.png; sourceTree = "<group>"; };
 		D217EAAF0FFDA96F00F7A4A9 /* RunningLeft02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningLeft02.png; sourceTree = "<group>"; };
 		D217EAB00FFDA96F00F7A4A9 /* blankTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blankTexture.png; sourceTree = "<group>"; };
 		D217EAB10FFDA96F00F7A4A9 /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
@@ -411,9 +413,10 @@
 		D217EACB0FFDA9F000F7A4A9 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				D2068D55101377DB005F4D9D /* StandingLeft.png */,
 				D24362FB1008F8D40016A6C3 /* flame.png */,
 				D217EAAC0FFDA96F00F7A4A9 /* RunningLeft01.png */,
-				D217EAAE0FFDA96F00F7A4A9 /* StandingLeft.png */,
+				D217EAAE0FFDA96F00F7A4A9 /* StandingLeft01.png */,
 				D217EAAF0FFDA96F00F7A4A9 /* RunningLeft02.png */,
 				D217EAB00FFDA96F00F7A4A9 /* blankTexture.png */,
 				D217EAB10FFDA96F00F7A4A9 /* particle.png */,
@@ -515,7 +518,7 @@
 				D217EAA40FFDA95D00F7A4A9 /* FLAME_BACK.dat in Resources */,
 				D217EAA50FFDA95D00F7A4A9 /* FLAME_FRONT.dat in Resources */,
 				D217EAB20FFDA97000F7A4A9 /* RunningLeft01.png in Resources */,
-				D217EAB40FFDA97000F7A4A9 /* StandingLeft.png in Resources */,
+				D217EAB40FFDA97000F7A4A9 /* StandingLeft01.png in Resources */,
 				D217EAB50FFDA97000F7A4A9 /* RunningLeft02.png in Resources */,
 				D217EAB60FFDA97000F7A4A9 /* blankTexture.png in Resources */,
 				D217EAB70FFDA97000F7A4A9 /* particle.png in Resources */,
@@ -524,6 +527,7 @@
 				D2EC194510019BE2002F97AD /* forest.caf in Resources */,
 				D2EC194610019BE2002F97AD /* outfile.caf in Resources */,
 				D24362FC1008F8D40016A6C3 /* flame.png in Resources */,
+				D2068D56101377DB005F4D9D /* StandingLeft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ ScreenController* ScreenController::getInstance()
 	return instance;
 }
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
 #pragma mark ----------
 ScreenController::ScreenController() :
@@ -34,6 +35,7 @@ ScreenController::~ScreenController()
 	delete screensToUpdate;
 }
 
+#pragma mark 
 #pragma mark Setup view and Load Content
 #pragma mark ----------
 //	This function sets up OpenGL for how we wish to draw objects to the 
@@ -110,6 +112,7 @@ void ScreenController::loadContent()
 	addScreen( newScreen );
 }
 
+#pragma mark
 #pragma mark Update / Draw Screens
 #pragma mark ----------
 //
@@ -177,6 +180,7 @@ void ScreenController::drawView(float deltaTime) const
 		(*drawScreen)->draw( deltaTime );
 }
 
+#pragma mark 
 #pragma mark Adding / Removing a screen from the controller
 #pragma mark ----------
 
@@ -211,6 +215,7 @@ void ScreenController::killScreen( GameScreen *gameScreen )
 	delete gameScreen;
 }
 
+#pragma mark 
 #pragma mark Transition Functions
 #pragma mark ----------
 

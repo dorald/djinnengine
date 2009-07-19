@@ -6,7 +6,9 @@
 //
 #include "ScreenController.h"
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ----------
 
 GameScreen::GameScreen( const std::string &name, ScreenController *sm )
 {
@@ -24,6 +26,9 @@ GameScreen::~GameScreen()
 {
 }
 
+#pragma mark
+#pragma mark Overloaded Operators
+#pragma mark ----------
 //
 //	operator overload for assignment operator;
 //	since there is dynamic memory allocated with this game screen
@@ -62,8 +67,6 @@ GameScreen &GameScreen::operator=( const GameScreen &copy )
 	return *this;
 }
 
-#pragma mark Overloaded operators
-
 bool GameScreen::operator==(const GameScreen &value) const
 {
 	return name == value.getName();
@@ -75,7 +78,9 @@ bool GameScreen::operator!=(const GameScreen &value) const
 	return name != value.getName();
 }
 
+#pragma mark
 #pragma mark Load / Unload Content
+#pragma mark ----------
 
 void GameScreen::loadContent()
 {
@@ -86,7 +91,9 @@ void GameScreen::unloadContent()
 	hasBeenUnloaded = true;
 }
 
-#pragma mark Properties
+#pragma mark
+#pragma mark Mutators
+#pragma mark ----------
 
 void GameScreen::setViewport(const Rectangle &value)
 {
@@ -114,7 +121,9 @@ void GameScreen::setTransitionPosition(const int &value)
 		transitionPosition = value;
 }
 
-#pragma mark Update / Draw functions
+#pragma mark
+#pragma mark Update / Draw
+#pragma mark ----------
 
 void GameScreen::update( float deltaTime, bool otherScreenHasFocus, bool coveredByOtherScreen )
 {
