@@ -20,6 +20,8 @@
 #include <QuartzCore/QuartzCore.h>	//used to load texture into memory
 #include <string>
 
+const int kMaxTextureSize = 1024;
+
 typedef enum
 {		
 		PNG = 0,
@@ -39,6 +41,14 @@ public:
 	//	get the width and height of the texture in pixels
 	GLuint getWidth() const { return _width; }
 	GLuint getHeight() const { return _height; }
+	
+	//	Max S and Max T are the basic representations of X and Y in our
+	//	Texture Coordinate System. T is bottom to top while S is Left to 
+	//	Right. If a texture is 512 x 512, but the actual renderable portion
+	//	is only 500 x 510, the maxT would be 500, while the max S would be 510
+	//	represented in dec form between 0 and 1. 
+	GLfloat getMaxS() const { return _maxS; }
+	GLfloat getMaxT() const { return _maxT; }
 
 	//	reference counters for the texture. When an object needs to use a texture
 	//	that has already been created, it will add a reference. When they no longer
@@ -67,6 +77,10 @@ private:
 	GLuint _glId;			//OpenGL's ID for this texture
 	GLuint _width;			
 	GLuint _height;
+	
+	GLfloat _maxT;			//	verticle
+	GLfloat _maxS;			//	horizontal
+	
 	int _referenceCount;
 	std::string assetName;	//Name of file this texture was loaded from
 	
