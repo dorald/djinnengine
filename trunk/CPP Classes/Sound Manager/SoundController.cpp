@@ -39,7 +39,7 @@ SoundController::SoundController() : MAX_SOURCES( 32 )
 	
 	if( !device )
 	{
-		Log::write("default device not found");
+		Log::write("SoundController::default device not found");
 		exit(1);
 	}
 	

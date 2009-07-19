@@ -85,10 +85,8 @@ AnimationController& AnimationController::operator =( const AnimationController 
 }
 
 #pragma mark
-# pragma mark Functions
+#pragma mark Loading / Removing animations
 #pragma mark ----------
-
-#pragma mark Loading and Removing an animation
 void AnimationController::loadAnimation( const string &asset )
 {
 	//	Allocate memory for the new animation
@@ -206,7 +204,7 @@ bool AnimationController::isAnimationPlaying( const string &name )
 	return false;
 }
 #pragma mark
-#pragma mark Update and Draw functions.
+#pragma mark Update and Draw Functions
 #pragma mark ----------
 
 void AnimationController::update( const float deltaTime )

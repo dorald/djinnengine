@@ -65,7 +65,7 @@ public:
 	//	Search through all active actors for a specific actor named X.
 	//	If the actor is found, the pointer to that specific actor is returned,
 	//	however if the actor is not found, NULL is returned.
-	const Actor* getActorNamed( const string value );
+	const Actor* getActorWithId( const string value );
 	
 	//	This function will set the actors identity to a unique name that
 	//	the actor will carry through their lifetime. We will start with

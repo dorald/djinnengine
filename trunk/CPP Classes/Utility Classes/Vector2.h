@@ -9,7 +9,7 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 
-class Vector2
+struct Vector2
 {
 public:
 	Vector2();
@@ -46,9 +46,6 @@ public:
 	Vector2 &operator *= ( const Vector2 &value );
 	Vector2 &operator /= ( const Vector2 &value );
 	
-private:
-	static Vector2 unitOne;
-	static Vector2 unitZero;
 };
 
 #endif
