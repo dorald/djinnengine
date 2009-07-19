@@ -48,11 +48,14 @@ void Texture2D::bindTexture()
 
 void Texture2D::loadFile( const std::string& asset )
 {
-	CGImageRef image;
-	CGDataProviderRef provider;
-	CFStringRef name;
-	CFURLRef url;
-	CFBundleRef mainBundle = CFBundleGetMainBundle();
+	CGImageRef			image;
+	CGDataProviderRef	provider;
+	CFStringRef			name;
+	CFURLRef			url;
+	CFBundleRef			mainBundle = CFBundleGetMainBundle();
+	CGAffineTransform	transform = CGAffineTransformIdentity;
+	bool				sizeToFit = false;
+	int					i;
 	
 	// Get the URL to the bundle resource.
 	name = CFStringCreateWithCString (NULL, asset.c_str(), kCFStringEncodingUTF8);
@@ -77,8 +80,36 @@ void Texture2D::loadFile( const std::string& asset )
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	
 	//	get the width and height of the image
-	_width = CGImageGetWidth(image);
-	_height = CGImageGetHeight(image);
+	Vector2 imageSize(CGImageGetWidth(image), CGImageGetHeight(image));
+	_width = imageSize.x;
+	_height = imageSize.y;
+	
+	//	adjust the images width and height to be powers of 2
+	if( (_width != 1) && (_width & (_width - 1)) ) 
+	{
+		i = 1;
+		while((sizeToFit ? 2 * i : i) < _width)
+			i *= 2;
+		_width = i;
+	}
+	
+	if( (_height != 1) && (_height & (_height - 1)) ) 
+	{
+		i = 1;
+		while((sizeToFit ? 2 * i : i) < _height)
+			i *= 2;
+		_height = i;
+	}
+	
+	//	scale down an image greater than the max texture size
+	while((_width > kMaxTextureSize) || (_height > kMaxTextureSize)) 
+	{
+		_width /= 2;
+		_height /= 2;
+		transform = CGAffineTransformScale(transform, 0.5, 0.5);
+		imageSize.x *= 0.5;
+		imageSize.y *= 0.5;
+	}
 	
 	//	create a device dependant color space
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -98,6 +129,10 @@ void Texture2D::loadFile( const std::string& asset )
     CGContextClearRect( context, CGRectMake( 0, 0, _width, _height ) );
     CGContextTranslateCTM( context, 0, _height - _height );
     CGContextDrawImage( context, CGRectMake( 0, 0, _width, _height ), image );
+	
+	//ensure our data is accurate
+	_maxS = imageSize.x / (float)_width;
+	_maxT = imageSize.y / (float)_height;
 	
 	//	pass the image data into OpenGL
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _width, _height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
@@ -153,10 +188,10 @@ void Texture2D::draw( const Rectangle& rectangle, const Color& color, const bool
 	};
 	
     GLfloat texCoords[] = {
-        0.0, 1.0,
-        1.0, 1.0,
-        0.0, 0.0,
-        1.0, 0.0
+		0,		_maxT,
+		_maxS,	_maxT,
+		0,		0,
+		_maxS,	0
     };
     
     glLoadIdentity();
