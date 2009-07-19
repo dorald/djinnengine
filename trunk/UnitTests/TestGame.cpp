@@ -53,20 +53,28 @@ void TestGame::testLoadContent()
 	if ( initialized )
 		return;
 	
+	testActors();
+	testParticleEngine();
+	//testSounds();
 	
-//	Textures->getTexture( "RunningLeft01" ); 
-//	
-//	
-	//actor
-	testActor = Actors->loadActor<Character>( "CHARACTER" );
-	
+	initialized = true;						 
+}
+
+void TestGame::testSounds()
+{
+	Sounds->loadSound( "photon", 22050 );
+	Sounds->playSound( "photon", .5, .5, Vector2::ZERO(), true );	
+}
+
+void TestGame::testParticleEngine()
+{
 	//load a particle effect. This should create a 'definition' of the particle effect for
 	//	which all other effects of the same type will be copied.
 	Particles->loadParticleEffect( "CAMPFIRE" );
-//	
-//	//	Starts a particle effect at the specific spot, with the specific variance, and
-//	//	duration. This should use the "CAMPFIRE" effect as a template, make a new copy
-//	//	of the effect, and start that effect in the location provided.
+	
+	//	Starts a particle effect at the specific spot, with the specific variance, and
+	//	duration. This should use the "CAMPFIRE" effect as a template, make a new copy
+	//	of the effect, and start that effect in the location provided.
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 200 ), Vector2::ZERO(), 5 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 190 ), Vector2::ZERO(), 10 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 180 ), Vector2::ZERO(), 15 );
@@ -77,19 +85,24 @@ void TestGame::testLoadContent()
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 260, 180 ), Vector2::ZERO(), -1 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 240, 170 ), Vector2::ZERO(), -1 );
 	
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 300 ), Vector2::ZERO(), 5 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 290 ), Vector2::ZERO(), 10 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 280 ), Vector2::ZERO(), 15 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 160, 270 ), Vector2::ZERO(), 20 );
 	
-	Sounds->loadSound( "photon", 22050 );
-	Sounds->playSound( "photon", .5, .5, Vector2::ZERO(), true );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 300, 300 ), Vector2::ZERO(), -1 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 280, 290 ), Vector2::ZERO(), -1 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 260, 280 ), Vector2::ZERO(), -1 );
+	Particles->startParticleEffect( "CAMPFIRE", Vector2( 240, 270 ), Vector2::ZERO(), -1 );
+}
 
-
+void TestGame::testActors()
+{
+	//actor
+	testActor = Actors->loadActor<Character>( "CHARACTER" );
 	
 	tex = Textures->getTexture( "RunningLeft01" );
 	tex->addReference();
-	
-	
-	
-	
-	initialized = true;						 
 }
 
 void TestGame::unloadContent()
@@ -126,137 +139,6 @@ void TestGame::testMathUtilities()
 		
 	result = 0;
 }
-
-void TestGame::testActorClass()
-{
-//	//	IMPORTANT:
-//	//	In the game, the ActorController should be the only class that instanciates 
-//	//	an actor object. For example; you would call 
-//	//	Actors->loadActor( assetName, actorPointer );
-//	Actor *act = new Actor();
-//	
-//	act->setAlpha( .50f );
-//	
-//	//	identities are unique and assigned when the object is constructed.. Calling this function
-//	//	should not change the identity
-//	act->setIdentity( "newIdentity" ); 	
-//	act->setName( "Werewolf ");
-//	act->setPosition( Vector2::ZERO() );
-//	act->setSize( Vector2(32, 32) );
-//	act->update(.003f);
-//	
-//	//	One actors Update and Draw method will be called, since there is 
-//	//	one actor in the 'actors' map
-//	Actors->update( .003f );
-//	Actors->draw( .003f );
-//
-//	delete act;
-//	act = NULL;
-//	
-//	//	Update and Draw still called, but now there are no actors
-//	//	in the 'actors' map
-//	Actors->update( .003f );
-//	Actors->draw( .003f );
-	
-}
-
-void TestGame::testAnimationClass()
-{
-	Texture2D *testTexture;
-	
-	//	An array of Texture2D Pointers
-	Texture2D* *frames = new Texture2D*[4];
-	string *frameNames = new string[4];
-	
-	frameNames[0] = "RunningLeft01";
-	frameNames[1] = "RunningLeft02";
-	frameNames[2] = "RunningLeft01";
-	frameNames[3] = "RunningLeft02";
-	
-	frames[0] = Textures->getTexture( "RunningLeft01" );
-	frames[0]->addReference();
-	frames[1] = Textures->getTexture( "RunningLeft02" );
-	frames[1]->addReference();
-	frames[2] = Textures->getTexture( "RunningLeft01" );
-	frames[2]->addReference();
-	frames[3] = Textures->getTexture( "RunningLeft02" );
-	frames[3]->addReference();
-	
-
-	
-	Animation *testAnim = new Animation();			//works
-	
-	testAnim->setAsset( "RUNNINGLEFT" );
-	testAnim->setName( "RunningLeft" );//working
-	testString = testAnim->getName();	//working
-	
-	testAnim->loadAnimation( frameNames, PNG, 4 );
-	//anim->loadAnimation( frames, 4 );
-	
-	testAnim->setIsLoop( true );
-	testBool = testAnim->getIsLoop();
-	
-	testAnim->setPauseAtEnd( false );
-	testBool = testAnim->getPauseAtEnd();
-	
-	testAnim->setFrameInterval( .35f );
-	testFloat = testAnim->getFrameInterval();
-		
-	testAnim->setIsLoop( false );
-	testAnim->setPauseAtEnd( false );
-
-	Animation *anim2 = new Animation;
-	*anim2 = *testAnim;
-	
-	delete testAnim;
-	testAnim = NULL;
-	
-	testTexture->releaseReference();
-	
-	delete [] frames;
-	delete [] frameNames;
-	
-	anim2->setIsLoop( true );
-	Files->serialize( "RUNNINGLEFT", *anim2 );
-	
-	
-	Animation* testSerialize = new Animation;
-	Files->unSerialize( "RUNNINGLEFT", *testSerialize );
-	testSerialize->isAnimationLoaded();
-}
-
-void TestGame::testAnimationController()
-{
-	AnimationController *sprite = new AnimationController( "RUNNINGLEFT" );
-	Rectangle *testSpriteBox = new Rectangle( 100, 300, 32, 32 );
-	
-	sprite->loadAnimation( "RUNNINGLEFT" );
-	sprite->playAnimation( "RUNNINGLEFT" );
-	
-	sprite->togglePause();
-	sprite->stopCurrentAnimation();
-	sprite->jumpToFrame( 3 );
-	
-	sprite->update( .0015f );
-	sprite->draw( .0015f, *testSpriteBox );
-	
-	sprite->removeAnimation( "RUNNINGLEFT" );
-	
-	delete testSpriteBox;
-	delete sprite;
-}
-
-void TestGame::testCharacterClass()
-{
-}	
-
-void TestGame::testParticleEngine()
-{
-//	Particles->addEffect( "CAMPFIRE" );
-//	Particles->
-}
-
-
 
 
 
