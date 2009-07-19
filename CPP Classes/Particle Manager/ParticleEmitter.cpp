@@ -9,8 +9,8 @@
 #include "ParticleEmitter.h"
 
 #pragma mark
-#pragma mark Object De-Serialization >> function.
-#pragma mark -----------------------------
+#pragma mark Serialization Functions
+#pragma mark ----------
 
 std::istream& operator >> ( std::istream &inStream, ParticleEmitter &value )
 {
@@ -70,7 +70,7 @@ std::istream& operator >> ( std::istream &inStream, ParticleEmitter &value )
 
 #pragma mark
 #pragma mark Constructor(s) / Destructor
-#pragma mark -----------------------------
+#pragma mark ----------
 
 ParticleEmitter::ParticleEmitter()
 {
@@ -96,8 +96,8 @@ ParticleEmitter::~ParticleEmitter()
 }
 
 #pragma mark
-#pragma mark Initialization Functions
-#pragma mark -----------------------------
+#pragma mark Initialization
+#pragma mark ----------
 
 void ParticleEmitter::setEmitterParameters( const std::string textureName,
 										   const GLfloat angle,
@@ -206,8 +206,8 @@ void ParticleEmitter::initParticle( Particle &particle )
 }
 
 #pragma mark
-#pragma mark Start / Stop Particle Emitter
-#pragma mark -----------------------------
+#pragma mark Start / Stop Emitter
+#pragma mark ----------
 
 void ParticleEmitter::startParticleEmitter( const Vector2 &source, const Vector2 &sourceVariance, const GLfloat duration )
 {
@@ -229,9 +229,9 @@ void ParticleEmitter::stopParticleEmitter()
 	emitCounter = 0;
 }
 
-#pragma mark 
-#pragma mark Update / Draw Functions
-#pragma mark  -----------------------------
+#pragma mark
+#pragma mark Update / Draw
+#pragma mark ----------
 
 void ParticleEmitter::update( const float deltaTime )
 {
@@ -330,20 +330,25 @@ void ParticleEmitter::updateParticles( const float deltaTime )
 			--particleCount;
 		}
 	}
+		
+	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
+	glBufferData( GL_ARRAY_BUFFER, sizeof(PointSprite) * maxParticles, vertices, GL_DYNAMIC_DRAW );
+	glBindBuffer( GL_ARRAY_BUFFER, colorsID );
+	glBufferData( GL_ARRAY_BUFFER, sizeof(Color) * maxParticles, colors, GL_DYNAMIC_DRAW );
+	glBindBuffer( GL_ARRAY_BUFFER, 0 );
 }
 
 void ParticleEmitter::draw( const float deltaTime )
 {	
+	GLfloat _maxS = texture->getMaxS();
+	GLfloat _maxT = texture->getMaxS();
+	
 	GLfloat texCoords[] = {
-        0.0, 1.0,
-        1.0, 1.0,
-        0.0, 0.0,
-        1.0, 0.0
+		0,		_maxT,
+		_maxS,	_maxT,
+		0,		0,
+		_maxS,	0
     };
-	
-	glPushMatrix();
-	
-	glMatrixMode(GL_MODELVIEW);
 	
 	//	Texture Blending fuctions
 	if ( blendAdditive )
@@ -351,46 +356,21 @@ void ParticleEmitter::draw( const float deltaTime )
 		glEnable(GL_BLEND);	
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	}
-	
-	glEnable(GL_TEXTURE_2D);
-	glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnableClientState(GL_COLOR_ARRAY);
-	
-	glEnable( GL_POINT_SPRITE_OES );
-	glTexEnvi( GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE );
-	
-	glBindBuffer( GL_ARRAY_BUFFER, verticesID );
-	glBufferData( GL_ARRAY_BUFFER, sizeof(PointSprite) * maxParticles, vertices, GL_DYNAMIC_DRAW );
-	glBindBuffer( GL_ARRAY_BUFFER, colorsID );
-	glBufferData( GL_ARRAY_BUFFER, sizeof(Color) * maxParticles, colors, GL_DYNAMIC_DRAW );
-	glBindBuffer( GL_ARRAY_BUFFER, 0 );
+
 	texture->bindTexture();
 	
     glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
 	glBindBuffer( GL_ARRAY_BUFFER, verticesID );	
 	glVertexPointer( 2, GL_FLOAT, sizeof(PointSprite), 0 );
 	
-	glEnableClientState( GL_POINT_SIZE_ARRAY_OES );
 	glPointSizePointerOES( GL_FLOAT, sizeof(PointSprite), (GLvoid*)(sizeof(GL_FLOAT)*2));
-	
-	glEnableClientState(GL_COLOR_ARRAY);
+		
 	glBindBuffer(GL_ARRAY_BUFFER, colorsID);
 	glColorPointer(4, GL_FLOAT, 0, 0);
 	glDrawArrays(GL_POINTS, 0, particleIndex);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	
-	
-	glDisable( GL_POINT_SPRITE_OES );
 	glDisable(GL_BLEND);
-	glDisable(GL_TEXTURE_2D);
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_NORMAL_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
-	
-	glPopMatrix();	
 }
 
 

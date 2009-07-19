@@ -64,30 +64,24 @@ class TestGame
 		static TestGame* instance;
 		bool initialized;
 		
+		
+		
 		//	Test variables that can be re-used if needed.
 		bool testBool;
 		int testInt;
 		float testFloat;
 		string testString;		
+		std::string testActor;
+		Texture2D *tex;
 		
 		//	Tests the math utilities located in the MathUtil.cpp class.
 		void testMathUtilities();
 		
-		//	Tests the Actor and ActorController class
-		void testActorClass();
-		std::string testActor;
-		
-		//	Tests the creation, update, and draw of an animation and the 
-		//	eventual execution of the AnimationController class.
-		void testAnimationClass();
-		void testAnimationController();
-		AnimationController *anim;
-		
-		void testCharacterClass();	
-		
 		void testParticleEngine();
+		void testSounds();
+		void testActors();
 		
-		Texture2D *tex;
+		
 	};
 
 #endif

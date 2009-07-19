@@ -8,7 +8,9 @@
 
 #include "ParticleEffect.h"
 
-#pragma mark Object Serialization >> and << functions
+#pragma mark
+#pragma mark Object Serialization
+#pragma mark ----------
 
 std::istream& operator >>( std::istream &inStream, ParticleEffect &value )
 {
@@ -33,7 +35,9 @@ std::ostream& operator <<( std::ostream &outStream, ParticleEffect &value )
 	return outStream;
 }
 
+#pragma mark
 #pragma mark Constructor(s) / Destructor
+#pragma mark ----------
 
 ParticleEffect& ParticleEffect::operator =( const ParticleEffect &copy )
 {
@@ -68,7 +72,9 @@ ParticleEffect::~ParticleEffect()
 	emitters = NULL;
 }
 
-#pragma mark Functions
+#pragma mark
+#pragma mark Loading / Unloading Effects
+#pragma mark ----------
 
 void ParticleEffect::loadParticleEmitters( const std::string *assets, const int numOfEmitters )
 {
@@ -98,7 +104,9 @@ void ParticleEffect::stopParticleEffect()
 	active = false;
 }
 
-#pragma mark Update / Draw Functions
+#pragma mark
+#pragma mark Update / Draw
+#pragma mark ----------
 
 void ParticleEffect::update( const float deltaTime )
 {
