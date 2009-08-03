@@ -16,9 +16,15 @@
 Texture2D::Texture2D( const std::string &asset )
 {
 	loadFile(asset);
+	vertices = new GLfloat[12];
+	texCoords = new GLfloat[12];
 }
 Texture2D::~Texture2D()
 {
+	delete [] vertices;
+	delete [] texCoords;
+	
+	glDeleteTextures(1, &_glId);
 }
 
 #pragma mark
@@ -86,20 +92,12 @@ void Texture2D::loadFile( const std::string& asset )
 	
 	//	adjust the images width and height to be powers of 2
 	if( (_width != 1) && (_width & (_width - 1)) ) 
-	{
-		i = 1;
-		while((sizeToFit ? 2 * i : i) < _width)
-			i *= 2;
-		_width = i;
-	}
+		_width = MathUtil::nextPowerOfTwo( _width );
+
 	
 	if( (_height != 1) && (_height & (_height - 1)) ) 
-	{
-		i = 1;
-		while((sizeToFit ? 2 * i : i) < _height)
-			i *= 2;
-		_height = i;
-	}
+		_height = MathUtil::nextPowerOfTwo( _height );
+
 	
 	//	scale down an image greater than the max texture size
 	while((_width > kMaxTextureSize) || (_height > kMaxTextureSize)) 
@@ -122,8 +120,8 @@ void Texture2D::loadFile( const std::string& asset )
 	//	flip the coordinates of the image before you feed it into OpenGL
 	//	Since I changed the coord system, this makes the image appear right side
 	//	up and not upside down.
-	CGContextTranslateCTM (context, 0, _height);
-	CGContextScaleCTM (context, 1.0, -1.0);
+//	CGContextTranslateCTM (context, 0, _height);
+//	CGContextScaleCTM (context, 1.0, -1.0);
 	
     CGColorSpaceRelease( colorSpace );
     CGContextClearRect( context, CGRectMake( 0, 0, _width, _height ) );
@@ -139,74 +137,4 @@ void Texture2D::loadFile( const std::string& asset )
 	
     CGContextRelease(context);	
     free(imageData);
-}
-
-void Texture2D::draw( const Rectangle& rectangle )
-{
-	draw( rectangle, Color(1, 1, 1, 1) , true );
-}
-
-void Texture2D::draw( const Rectangle& rectangle, const Color& color )
-{
-	draw( rectangle, color, true );
-}
-
-void Texture2D::draw( const Rectangle& rectangle, const Color& color, const bool blendAdditive )
-{		
-	glPushMatrix();
-	glMatrixMode(GL_MODELVIEW);
-	
-	//	Texture Blending fuctions
-	if ( blendAdditive )
-	{
-		 glEnable(GL_BLEND);	
-		 glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	}
-	
-	//	needed to draw textures using Texture2D
-	glEnable(GL_TEXTURE_2D);	
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnableClientState(GL_VERTEX_ARRAY);
-	
-	
-	//	enables alpha for transparent textures
-	//	I forget where I got these commands, iDevGames.net I think
-	glAlphaFunc(GL_GREATER, 0.1f);
-	glEnable(GL_ALPHA_TEST);
-	
-	//	Enable the various arrays used to draw texture to screen
-	glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    
-	GLfloat	vertices[] = 
-	{	
-		rectangle.x,						rectangle.y,						0.0,
-		rectangle.x + rectangle.width,		rectangle.y,						0.0,
-		rectangle.x,						rectangle.y + rectangle.height,		0.0,
-		rectangle.x + rectangle.width,		rectangle.y + rectangle.height,		0.0 
-	};
-	
-    GLfloat texCoords[] = {
-		0,		_maxT,
-		_maxS,	_maxT,
-		0,		0,
-		_maxS,	0
-    };
-    
-    glLoadIdentity();
-    
-	Textures->bindTexture( _glId );
-	glColor4f(color.red, color.green, color.blue, color.alpha);
-    glVertexPointer(3, GL_FLOAT, 0, vertices);
-    glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4); 
-	
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glDisable( GL_BLEND );
-	glDisable( GL_TEXTURE_2D );
-	glDisable( GL_ALPHA_TEST );
-	
-	glPopMatrix();
 }
