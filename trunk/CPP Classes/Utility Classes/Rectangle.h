@@ -35,8 +35,8 @@ public:
 	//
 	//	operator overloads
 	//
-	bool operator ==( const Rectangle &value );
-	bool operator !=( const Rectangle &value );
+	bool operator ==( const Rectangle &value ) const;
+	bool operator !=( const Rectangle &value ) const;
 	
 	//	Checks the rectangle and determines if the specified point
 	//	is located within the rectangle's body.
