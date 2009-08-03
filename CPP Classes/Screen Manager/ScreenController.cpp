@@ -225,7 +225,9 @@ void ScreenController::fadeBackBufferToBlack( float alpha ) const
 	//	Helper method to draw a translecent black fullscreen sprite, used
 	//	for fading screens in and out, and for darkening the background
 	//	behind pop up screens.
-	blankTexture->draw(viewport, Color(alpha, alpha, alpha, alpha));
+	Textures->begin();
+	Textures->draw( *blankTexture, viewport, Rectangle::ZERO(), Color(1, 1, 1, alpha) );
+	Textures->end();
 }
 
 
