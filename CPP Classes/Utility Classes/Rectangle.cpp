@@ -23,7 +23,7 @@ Rectangle::Rectangle( int x, int y, int width, int height )
 //
 //	operator overloads
 //
-bool Rectangle::operator ==( const Rectangle &value )
+bool Rectangle::operator ==( const Rectangle &value ) const
 {
 	if ( x == value.x &&
 		y == value.y &&
@@ -36,7 +36,7 @@ bool Rectangle::operator ==( const Rectangle &value )
 	return false;
 }
 
-bool Rectangle::operator !=( const Rectangle &value )
+bool Rectangle::operator !=( const Rectangle &value )  const
 {
 	return !( *this == value );
 }
