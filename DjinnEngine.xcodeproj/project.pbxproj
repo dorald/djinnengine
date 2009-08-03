@@ -27,8 +27,6 @@
 		D217E99A0FFDA32D00F7A4A9 /* InputState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9630FFDA32D00F7A4A9 /* InputState.cpp */; };
 		D217E99B0FFDA32D00F7A4A9 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9660FFDA32D00F7A4A9 /* Particle.cpp */; };
 		D217E99C0FFDA32D00F7A4A9 /* ParticleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9680FFDA32D00F7A4A9 /* ParticleController.cpp */; };
-		D217E99D0FFDA32D00F7A4A9 /* ParticleEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E96A0FFDA32D00F7A4A9 /* ParticleEffect.cpp */; };
-		D217E99E0FFDA32D00F7A4A9 /* ParticleEmitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */; };
 		D217E99F0FFDA32D00F7A4A9 /* GameScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E96F0FFDA32D00F7A4A9 /* GameScreen.cpp */; };
 		D217E9A00FFDA32D00F7A4A9 /* ScreenController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9710FFDA32D00F7A4A9 /* ScreenController.cpp */; };
 		D217E9A10FFDA32D00F7A4A9 /* SoundController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D217E9740FFDA32D00F7A4A9 /* SoundController.cpp */; };
@@ -57,6 +55,11 @@
 		D24362FC1008F8D40016A6C3 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = D24362FB1008F8D40016A6C3 /* flame.png */; };
 		D25B5658100107D70071438F /* MathUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25B5656100107D70071438F /* MathUtil.cpp */; };
 		D25B565B100107E10071438F /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25B5659100107E10071438F /* Vector2.cpp */; };
+		D26E435D10265BBD00E6278C /* ParticleEmitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26E435C10265BBD00E6278C /* ParticleEmitter.cpp */; };
+		D26E43D01026648F00E6278C /* ParticleEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D26E43CE1026648F00E6278C /* ParticleEffect.cpp */; };
+		D26E43D31026653D00E6278C /* ACTOR2.dat in Resources */ = {isa = PBXBuildFile; fileRef = D26E43D21026653D00E6278C /* ACTOR2.dat */; };
+		D26E43D51026656200E6278C /* ACTOR3.dat in Resources */ = {isa = PBXBuildFile; fileRef = D26E43D41026656200E6278C /* ACTOR3.dat */; };
+		D26E43E7102665ED00E6278C /* STANDINGLEFT.dat in Resources */ = {isa = PBXBuildFile; fileRef = D26E43E6102665ED00E6278C /* STANDINGLEFT.dat */; };
 		D291884B10001632000958B9 /* Quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D291884A10001632000958B9 /* Quad.cpp */; };
 		D2EC18461001765F002F97AD /* TextureController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2EC18451001765F002F97AD /* TextureController.cpp */; };
 		D2EC1864100177F9002F97AD /* Texture2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2EC1863100177F9002F97AD /* Texture2D.cpp */; };
@@ -103,10 +106,6 @@
 		D217E9670FFDA32D00F7A4A9 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		D217E9680FFDA32D00F7A4A9 /* ParticleController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleController.cpp; sourceTree = "<group>"; };
 		D217E9690FFDA32D00F7A4A9 /* ParticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleController.h; sourceTree = "<group>"; };
-		D217E96A0FFDA32D00F7A4A9 /* ParticleEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleEffect.cpp; sourceTree = "<group>"; };
-		D217E96B0FFDA32D00F7A4A9 /* ParticleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEffect.h; sourceTree = "<group>"; };
-		D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleEmitter.cpp; sourceTree = "<group>"; };
-		D217E96D0FFDA32D00F7A4A9 /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
 		D217E96F0FFDA32D00F7A4A9 /* GameScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScreen.cpp; sourceTree = "<group>"; };
 		D217E9700FFDA32D00F7A4A9 /* GameScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScreen.h; sourceTree = "<group>"; };
 		D217E9710FFDA32D00F7A4A9 /* ScreenController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenController.cpp; sourceTree = "<group>"; };
@@ -149,6 +148,13 @@
 		D25B5657100107D70071438F /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
 		D25B5659100107E10071438F /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector2.cpp; sourceTree = "<group>"; };
 		D25B565A100107E10071438F /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
+		D26E435B10265BBD00E6278C /* ParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEmitter.h; sourceTree = "<group>"; };
+		D26E435C10265BBD00E6278C /* ParticleEmitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleEmitter.cpp; sourceTree = "<group>"; };
+		D26E43CE1026648F00E6278C /* ParticleEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleEffect.cpp; sourceTree = "<group>"; };
+		D26E43CF1026648F00E6278C /* ParticleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleEffect.h; sourceTree = "<group>"; };
+		D26E43D21026653D00E6278C /* ACTOR2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ACTOR2.dat; sourceTree = "<group>"; };
+		D26E43D41026656200E6278C /* ACTOR3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ACTOR3.dat; sourceTree = "<group>"; };
+		D26E43E6102665ED00E6278C /* STANDINGLEFT.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = STANDINGLEFT.dat; sourceTree = "<group>"; };
 		D291884A10001632000958B9 /* Quad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quad.cpp; sourceTree = "<group>"; };
 		D2EC18441001765F002F97AD /* TextureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureController.h; sourceTree = "<group>"; };
 		D2EC18451001765F002F97AD /* TextureController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureController.cpp; sourceTree = "<group>"; };
@@ -327,10 +333,10 @@
 			children = (
 				D217E9690FFDA32D00F7A4A9 /* ParticleController.h */,
 				D217E9680FFDA32D00F7A4A9 /* ParticleController.cpp */,
-				D217E96B0FFDA32D00F7A4A9 /* ParticleEffect.h */,
-				D217E96A0FFDA32D00F7A4A9 /* ParticleEffect.cpp */,
-				D217E96D0FFDA32D00F7A4A9 /* ParticleEmitter.h */,
-				D217E96C0FFDA32D00F7A4A9 /* ParticleEmitter.cpp */,
+				D26E43CE1026648F00E6278C /* ParticleEffect.cpp */,
+				D26E43CF1026648F00E6278C /* ParticleEffect.h */,
+				D26E435B10265BBD00E6278C /* ParticleEmitter.h */,
+				D26E435C10265BBD00E6278C /* ParticleEmitter.cpp */,
 				D217E9670FFDA32D00F7A4A9 /* Particle.h */,
 				D217E9660FFDA32D00F7A4A9 /* Particle.cpp */,
 			);
@@ -405,6 +411,7 @@
 		D217EAC30FFDA9CA00F7A4A9 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				D26E43E6102665ED00E6278C /* STANDINGLEFT.dat */,
 				D217EAC00FFDA9B900F7A4A9 /* RUNNINGLEFT.dat */,
 			);
 			name = Animations;
@@ -445,6 +452,8 @@
 		D217EACE0FFDAA1700F7A4A9 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				D26E43D41026656200E6278C /* ACTOR3.dat */,
+				D26E43D21026653D00E6278C /* ACTOR2.dat */,
 				D217EA9C0FFDA95400F7A4A9 /* ACTOR.dat */,
 				D217EA9D0FFDA95400F7A4A9 /* CHARACTER.dat */,
 			);
@@ -528,6 +537,9 @@
 				D2EC194610019BE2002F97AD /* outfile.caf in Resources */,
 				D24362FC1008F8D40016A6C3 /* flame.png in Resources */,
 				D2068D56101377DB005F4D9D /* StandingLeft.png in Resources */,
+				D26E43D31026653D00E6278C /* ACTOR2.dat in Resources */,
+				D26E43D51026656200E6278C /* ACTOR3.dat in Resources */,
+				D26E43E7102665ED00E6278C /* STANDINGLEFT.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,8 +564,6 @@
 				D217E99A0FFDA32D00F7A4A9 /* InputState.cpp in Sources */,
 				D217E99B0FFDA32D00F7A4A9 /* Particle.cpp in Sources */,
 				D217E99C0FFDA32D00F7A4A9 /* ParticleController.cpp in Sources */,
-				D217E99D0FFDA32D00F7A4A9 /* ParticleEffect.cpp in Sources */,
-				D217E99E0FFDA32D00F7A4A9 /* ParticleEmitter.cpp in Sources */,
 				D217E99F0FFDA32D00F7A4A9 /* GameScreen.cpp in Sources */,
 				D217E9A00FFDA32D00F7A4A9 /* ScreenController.cpp in Sources */,
 				D217E9A10FFDA32D00F7A4A9 /* SoundController.cpp in Sources */,
@@ -568,6 +578,8 @@
 				D25B565B100107E10071438F /* Vector2.cpp in Sources */,
 				D2EC18461001765F002F97AD /* TextureController.cpp in Sources */,
 				D2EC1864100177F9002F97AD /* Texture2D.cpp in Sources */,
+				D26E435D10265BBD00E6278C /* ParticleEmitter.cpp in Sources */,
+				D26E43D01026648F00E6278C /* ParticleEffect.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
