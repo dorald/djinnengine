@@ -39,8 +39,8 @@ public:
 	GLuint getId() const { return _glId; }
 	
 	//	get the width and height of the texture in pixels
-	GLuint getWidth() const { return _width; }
-	GLuint getHeight() const { return _height; }
+	GLfloat getWidth() const { return (float)_width; }
+	GLfloat getHeight() const { return (float)_height; }
 	
 	//	Max S and Max T are the basic representations of X and Y in our
 	//	Texture Coordinate System. T is bottom to top while S is Left to 
@@ -61,11 +61,6 @@ public:
 	//	Tells the texture controller to bind the texture using glBindTexture() function
 	void bindTexture();
 	
-	//	Render the texture to screen using a variety of parameters.
-	void draw( const Rectangle& rectangle );
-	void draw( const Rectangle& rectangle, const Color& color );
-	void draw( const Rectangle& rectangle, const Color& color, const bool blendAdditive );
-	
 protected:
 	//	Only the TextureController class should be able to instanciate
 	//	a texture object
@@ -74,12 +69,14 @@ protected:
 	
 private:
 	//	texture Data
-	GLuint _glId;			//OpenGL's ID for this texture
-	GLuint _width;			
-	GLuint _height;
+	GLuint	_glId;			//OpenGL's ID for this texture
+	GLuint	_width;			
+	GLuint	_height;
 	
 	GLfloat _maxT;			//	verticle
 	GLfloat _maxS;			//	horizontal
+	GLfloat	*vertices;
+	GLfloat	*texCoords;
 	
 	int _referenceCount;
 	std::string assetName;	//Name of file this texture was loaded from
