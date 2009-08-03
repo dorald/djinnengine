@@ -75,31 +75,24 @@ void TestGame::testParticleEngine()
 	//	Starts a particle effect at the specific spot, with the specific variance, and
 	//	duration. This should use the "CAMPFIRE" effect as a template, make a new copy
 	//	of the effect, and start that effect in the location provided.
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 200 ), Vector2::ZERO(), 5 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 190 ), Vector2::ZERO(), 10 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 180 ), Vector2::ZERO(), 15 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 160, 170 ), Vector2::ZERO(), 20 );
-	
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 300, 200 ), Vector2::ZERO(), -1 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 280, 190 ), Vector2::ZERO(), -1 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 260, 180 ), Vector2::ZERO(), -1 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 200 ), Vector2::ZERO(), 5 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 190 ), Vector2::ZERO(), 10 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 180 ), Vector2::ZERO(), 15 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 160, 170 ), Vector2::ZERO(), 20 );
+//	
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 300, 200 ), Vector2::ZERO(), -1 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 280, 190 ), Vector2::ZERO(), -1 );
+//	Particles->startParticleEffect( "CAMPFIRE", Vector2( 260, 180 ), Vector2::ZERO(), -1 );
 	Particles->startParticleEffect( "CAMPFIRE", Vector2( 240, 170 ), Vector2::ZERO(), -1 );
-	
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 100, 300 ), Vector2::ZERO(), 5 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 120, 290 ), Vector2::ZERO(), 10 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 140, 280 ), Vector2::ZERO(), 15 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 160, 270 ), Vector2::ZERO(), 20 );
-	
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 300, 300 ), Vector2::ZERO(), -1 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 280, 290 ), Vector2::ZERO(), -1 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 260, 280 ), Vector2::ZERO(), -1 );
-	Particles->startParticleEffect( "CAMPFIRE", Vector2( 240, 270 ), Vector2::ZERO(), -1 );
 }
 
 void TestGame::testActors()
 {
 	//actor
 	testActor = Actors->loadActor<Character>( "CHARACTER" );
+	testActor = Actors->loadActor<Character>( "ACTOR" );
+	testActor = Actors->loadActor<Character>( "ACTOR2" );
+	testActor = Actors->loadActor<Character>( "ACTOR3" );
 	
 	tex = Textures->getTexture( "RunningLeft01" );
 	tex->addReference();
@@ -117,8 +110,11 @@ void TestGame::testUpdate( const float deltaTime )
 }
 
 void TestGame::testDraw( const float deltaTime )
-{
+{	
+	Textures->begin();
 	Actors->draw( deltaTime );
+	Textures->end();
+	
 	Particles->draw(deltaTime);
 }
 
